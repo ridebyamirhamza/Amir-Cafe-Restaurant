@@ -163,7 +163,7 @@ icon: "fa-bowl-food",
 items: [
 ["White Sauce Pasta",189,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUZkxODW8I27Xb4XRu2g4ITGgwI8yjOqsLMTzlZAS0dg&s=10"],
 ["Red Sauce Pasta",199,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScatYna4nHtPAML_qJwTojSOUTkL6KX7E_1QKAakKyPQ&s=10"],
-["Alfredo Pasta",249,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmjG1cQs93_kKVnfmYFF5YcIq5rZ6Fif7PbYRFon5I6Q&s=10"]
+["Alfredo Pasta",249,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1dODQwba6ccV9Ptjz2ybTtlt47ipYUpT_kuo6dvcthw&s=10"]
 ]},
 
 {
@@ -171,50 +171,50 @@ category: "Pizza (Veg)",
 icon: "fa-pizza-slice",
 items: [
 ["Classic Margherita Pizza",200,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTdADV9IefUWQzd6DIFnyVtNnqjYT3OsOrbKa_-iYKpg&s=10",270],
-["Double Cheese Mag. Pizza",300,"https://images.unsplash.com/photo-1513104890138-7c749659a591?w=700",400],
-["Spicy Delight Pizza",320,"https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=700",450],
-["Perry Paneer Pizza",340,"https://images.unsplash.com/photo-1595750017130-9b3438e3e414?w=700",400],
-["Farmer Delight Pizza",350,"https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=700",420]
+["Double Cheese Mag. Pizza",300,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSklR_4BJjCTFuKLUe4S74f4g-E_qZc4mv-LK6xTMV3gw&s=10",400],
+["Spicy Delight Pizza",320,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSLnOvWEZuQVo2ks9b0ID3JbUfMFK8Z22Yx2b8AxnOjw&s=10",450],
+["Perry Paneer Pizza",340,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhC1e7OXtcThnhT1RW2Hx06cxonMYtJkP4_HCIdkYdgA&s=10",400],
+["Farmer Delight Pizza",350,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSr1deGSmA_otI24-xjZww64oMfFOvJT9SJ772KWdqT0A&s",420]
 ]},
 
 {
 category: "Noodles",
 icon: "fa-bowl-rice",
 items: [
-["Veg Noodles",220,"https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=700"],
-["Hakka Noodles",200,"https://images.unsplash.com/photo-1585032226651-759b368d7246?w=700"],
-["Chilli Garlic Noodles",250,"https://images.unsplash.com/photo-1612927601601-6638404737dd?w=700"]
+["Veg Noodles",220,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGYMp4u6pOZ9F-L0fS-byPk-hDLxeoPHioF5LPWKUW7A&s=10"],
+["Hakka Noodles",200,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa7JrHKqToXv8maDyT-JxjJuLJjz0bt1dMWlNfkz68mg&s=10"],
+["Chilli Garlic Noodles",250,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8s3bjlebvVM037gmEVy1yCkrkwDK7CMtajwuRfkaxvQ&s=10"]
 ]},
 
 {
 category: "Desserts",
 icon: "fa-ice-cream",
 items: [
-["Choice of Ice Cream",99,"https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=700"],
-["Walnut Brownie With Ice Cream",120,"https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=700"]
+["Choice of Ice Cream",99,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThJ4dlm2VYrJjE8cZ31gPiOiAjDWr0HEReo1Rrsqac_g&s=10"],
+["Walnut Brownie With Ice Cream",120,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQssxpaSsjhVUJYph2UrdOWkGFbzwN-rnxeVzM2uOdu1w&s=10"]
 ]},
 
 {
 category: "Soft Drinks",
 icon: "fa-glass-water",
 items: [
-["Sprite",20,"https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=700"],
-["Coke",20,"https://images.unsplash.com/photo-1554866585-cd94860890b7?w=700"],
-["Fanta",20,"https://images.unsplash.com/photo-1625772299848-391b6a87d7b3?w=700"],
-["Mountain Dew",20,"https://images.unsplash.com/photo-1629203851122-3726ecdf080e?w=700"]
+["Sprite",20,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0Gw2R0aqMvSOdSg4ip3S0M4-3g90j7viD2DYNgFzPXQ&s=10"],
+["Coke",20,"https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=700"],
+["Fanta",20,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0HXj1tXRkNb_f0rrzKdQCOd-4m9SKSN6s9KBm63bhYQ&s=10"],
+["Pepsi",20,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReemYuP2WJigeHzCmRZXbGfTIwRwmPewTxP0HbIbIYhg&s=10"]
 ]},
 
 {
 category: "Shakes",
 icon: "fa-mug-hot",
 items: [
-["Cold Coffee",140,"https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=700"],
-["Vanilla Shake",169,"https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=700"],
-["Chocolate Shake",169,"https://images.unsplash.com/photo-1553787499-6f9133860278?w=700"],
-["Strawberry Shake",169,"https://images.unsplash.com/photo-1553177791-57f3695d9fbc?w=700"],
-["Butter Scotch",169,"https://images.unsplash.com/photo-1577805947697-89e18249d767?w=700"],
-["Kitkat Shake",149,"https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=700"],
-["Mango Shake",220,"https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=700"],
+["Cold Coffee",140,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrw0uRnqwJv1qCJyCo5Vetzz3t747iFGAXFHUTzjkXUQ&s=10"],
+["Vanilla Shake",169,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDRC28-rSWXgZIcK5BzoI0v9s0KLuQBBmq1k-uEsYMBA&s=10"],
+["Chocolate Shake",169,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRD2PyunjcVS4MPFq_ODqQ9qy2H4HniEqX14x4R5QSoA&s=10"],
+["Strawberry Shake",169,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOn71OmdbgjdgeTymjt7XzEdjUnCdEcpV-_0_-h1bCCg&s=10"],
+["Butter Scotch",169,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk7FXal_PBAnRYcuUZsbaMPfQa38OWUnDBL3tChsNxAA&s=10"],
+["Kitkat Shake",149,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFDEofaM-a2qWqFaMp3Hx2YsSkXAsxGxyivqjQSNrKLw&s=10"],
+["Mango Shake",220,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlfmkCk0PJnryzrpiG2oDzlAKWT48sAYmv1pjddya5_Q&s=10"],
 ["Bubblegum Shake",160,"https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=700"]
 ]},
 
