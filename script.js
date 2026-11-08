@@ -1,17 +1,24 @@
 
 // ================= SUPABASE CONFIGURATION =================
 const SUPABASE_URL = "https://imtofnjwhvalseffdagv.supabase.co/rest/v1/";
+
+// এখানে নিজের Supabase Publishable Key বসাবে
 const SUPABASE_ANON_KEY = "sb_publishable_pPCh_B1H7--pLxHaLKAwWQ_eHPAbdCx";
 
 let supabaseClient = null;
 
-if (window.supabase && SUPABASE_URL.startsWith("https://") &&
-    !SUPABASE_URL.includes("YOUR_") && !SUPABASE_ANON_KEY.includes("YOUR_")) {
-  supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+if (
+  window.supabase &&
+  SUPABASE_URL.startsWith("https://") &&
+  !SUPABASE_ANON_KEY.includes("YOUR_")
+) {
+  supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_ANON_KEY
+  );
 }
 
 // ================= MENU DATA =================
-// Original Mojito images are preserved.
 const MENU = [
   { category: "Soups", icon: "fa-bowl-food", items: [
     ["Tomato Soup",130,"https://images.unsplash.com/photo-1547592166-23ac45744acd?w=700&auto=format&fit=crop&q=85"],
@@ -19,6 +26,7 @@ const MENU = [
     ["Sweet Corn Soup",149,"https://images.unsplash.com/photo-1547592180-85f173990554?w=700&auto=format&fit=crop&q=85"],
     ["Healthy Vegetables Soup",199,"https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=700&auto=format&fit=crop&q=85"]
   ]},
+
   { category: "Munchies", icon: "fa-bowl-rice", items: [
     ["Masala Papad",140,"https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=700&auto=format&fit=crop&q=85"],
     ["French Fries",149,"https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=700&auto=format&fit=crop&q=85"],
@@ -29,23 +37,27 @@ const MENU = [
     ["Peri Peri Fries",179,"https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?w=700&auto=format&fit=crop&q=85"],
     ["Creamy Fries",169,"https://images.unsplash.com/photo-1585109649139-366815a0d713?w=700&auto=format&fit=crop&q=85"]
   ]},
+
   { category: "Burger", icon: "fa-burger", items: [
     ["Allo Tikki Burger",69,"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=700&auto=format&fit=crop&q=85"],
     ["Crispy Veg Burger",89,"https://images.unsplash.com/photo-1550547660-d9450f859349?w=700&auto=format&fit=crop&q=85"],
     ["Paneer Burger",120,"https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=700&auto=format&fit=crop&q=85"],
     ["Nacho Cheese Burger",110,"https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=700&auto=format&fit=crop&q=85"]
   ]},
+
   { category: "Sandwich", icon: "fa-bread-slice", items: [
     ["Corn Fresh Sandwich",130,"https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=700&auto=format&fit=crop&q=85"],
     ["Veg Grilled Sandwich",150,"https://images.unsplash.com/photo-1509722747041-616f39b57569?w=700&auto=format&fit=crop&q=85"],
     ["Veg Double Decker Sandwich",219,"https://images.unsplash.com/photo-1554471062-e5dd4695b38d?w=700&auto=format&fit=crop&q=85"]
   ]},
+
   { category: "Wrap", icon: "fa-utensils", items: [
     ["Fries Wrap",150,"https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?w=700&auto=format&fit=crop&q=85"],
     ["Nacho Wrap",150,"https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=700&auto=format&fit=crop&q=85"],
     ["Veggies Wrap",140,"https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=700&auto=format&fit=crop&q=85"],
     ["Paneer Wrap",150,"https://images.unsplash.com/photo-1540420773420-3366772f4999?w=700&auto=format&fit=crop&q=85"]
   ]},
+
   { category: "Starter", icon: "fa-utensils", items: [
     ["Veg Spring Roll",149,"https://images.unsplash.com/photo-1601050690597-df0568f70950?w=700&auto=format&fit=crop&q=85"],
     ["Honey Chilli Cauliflower",210,"https://images.unsplash.com/photo-1525755662778-989d0524087e?w=700&auto=format&fit=crop&q=85"],
@@ -57,11 +69,13 @@ const MENU = [
     ["Veg Manchurian Dry",220,"https://images.unsplash.com/photo-1526318896980-cf78c088247c?w=700&auto=format&fit=crop&q=85"],
     ["Honey Chilli Potato",200,"https://images.unsplash.com/photo-1518013431117-eb1465fa5752?w=700&auto=format&fit=crop&q=85"]
   ]},
+
   { category: "Pasta", icon: "fa-bowl-food", items: [
     ["White Sauce Pasta",189,"https://images.unsplash.com/photo-1621996346565-e3d5d6281298?w=700&auto=format&fit=crop&q=85"],
     ["Red Sauce Pasta",199,"https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=700&auto=format&fit=crop&q=85"],
     ["Alfredo Pasta",249,"https://images.unsplash.com/photo-1608897013039-887f21d8c804?w=700&auto=format&fit=crop&q=85"]
   ]},
+
   { category: "Pizza (Veg)", icon: "fa-pizza-slice", items: [
     ["Classic Margherita",200,"https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=700&auto=format&fit=crop&q=85",270],
     ["Double Cheese Mag",300,"https://images.unsplash.com/photo-1513104890138-7c749659a591?w=700&auto=format&fit=crop&q=85",400],
@@ -69,21 +83,25 @@ const MENU = [
     ["Perry Paneer",340,"https://images.unsplash.com/photo-1595750017130-9b3438e3e414?w=700&auto=format&fit=crop&q=85",400],
     ["Farmer Delight",350,"https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=700&auto=format&fit=crop&q=85",420]
   ]},
+
   { category: "Noodles", icon: "fa-bowl-rice", items: [
     ["Veg Noodles",220,"https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=700&auto=format&fit=crop&q=85"],
     ["Hakka Noodles",200,"https://images.unsplash.com/photo-1585032226651-759b368d7246?w=700&auto=format&fit=crop&q=85"],
     ["Chilli Garlic Noodles",250,"https://images.unsplash.com/photo-1612927601601-6638404737dd?w=700&auto=format&fit=crop&q=85"]
   ]},
+
   { category: "Desserts", icon: "fa-ice-cream", items: [
     ["Choice of Ice Cream",99,"https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=700&auto=format&fit=crop&q=85"],
     ["Walnut Brownie With Ice Cream",120,"https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=700&auto=format&fit=crop&q=85"]
   ]},
+
   { category: "Soft Drinks", icon: "fa-glass-water", items: [
     ["Sprite",20,"https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=700&auto=format&fit=crop&q=85"],
     ["Coke",20,"https://images.unsplash.com/photo-1554866585-cd94860890b7?w=700&auto=format&fit=crop&q=85"],
     ["Fanta",20,"https://images.unsplash.com/photo-1625772299848-391b6a87d7b3?w=700&auto=format&fit=crop&q=85"],
     ["Mountain Dew",20,"https://images.unsplash.com/photo-1629203851122-3726ecdf080e?w=700&auto=format&fit=crop&q=85"]
   ]},
+
   { category: "Shakes", icon: "fa-mug-hot", items: [
     ["Cold Coffee",140,"https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=700&auto=format&fit=crop&q=85"],
     ["Vanilla Shake",169,"https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=700&auto=format&fit=crop&q=85"],
@@ -94,6 +112,7 @@ const MENU = [
     ["Mango Shake",220,"https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=700&auto=format&fit=crop&q=85"],
     ["Bubblegum Shake",160,"https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=700&auto=format&fit=crop&q=85"]
   ]},
+
   { category: "Mojito", icon: "fa-martini-glass-citrus", items: [
     ["Orange Mojito",140,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShrqDAbzI_COp3ra8sOXS6Q0LqTYpkGUS65MFq_VhrZw&s=10"],
     ["Watermelon Mojito",140,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTClvVGHxlBPKD8JlxsiwwjZgEMJeM_zlioLH2mIEXXGg&s=10"],
@@ -101,6 +120,7 @@ const MENU = [
     ["Mango Mojito",140,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHyzotNa-9CjeSOym-SUeaCitgni0nAahfDyy8yB6ESg&s=10"],
     ["Mint Mojito",140,"https://puffnsip.in/_next/image?url=%2Fuploads%2Fmedia_2026-10_9875870a-4313-48ea-90c6-c085afb12ac1.webp&w=1080&q=75"]
   ]},
+
   { category: "Coffee", icon: "fa-mug-saucer", items: [
     ["Hot Coffee",99,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQq3P6ktvrer8ZSkE5KImYsvAfDNb0q9WKTQTIILVFM0g&s=10"],
     ["Black Coffee",140,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8ZRC6OXdpCFE57ibsXHt5Tou_PZGFwaCp6sBOT0HSQA&s=10"]
@@ -116,73 +136,143 @@ let phoneInput = null;
 function renderMenu() {
   const nav = document.getElementById("category-nav");
   const root = document.getElementById("menu-sections");
+
   nav.innerHTML = "";
   root.innerHTML = "";
 
   MENU.forEach((group, index) => {
     const id = "category-" + index;
+
     const pill = document.createElement("button");
     pill.className = "category-pill" + (index === 0 ? " active" : "");
     pill.type = "button";
-    pill.innerHTML = `<i class="fa-solid ${group.icon}"></i><span>${escapeHTML(group.category)}</span>`;
+
+    pill.innerHTML = `
+      <i class="fa-solid ${group.icon}"></i>
+      <span>${escapeHTML(group.category)}</span>
+    `;
+
     pill.addEventListener("click", () => {
-      document.getElementById(id).scrollIntoView({ behavior: "smooth", block: "start" });
-      document.querySelectorAll(".category-pill").forEach(p => p.classList.remove("active"));
+      document.getElementById(id).scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+      document.querySelectorAll(".category-pill").forEach(p =>
+        p.classList.remove("active")
+      );
+
       pill.classList.add("active");
     });
+
     nav.appendChild(pill);
 
     const section = document.createElement("section");
     section.className = "category-section";
     section.id = id;
-    section.innerHTML = `<h2>${escapeHTML(group.category)}</h2><div class="menu-grid"></div>`;
+
+    section.innerHTML = `
+      <h2>${escapeHTML(group.category)}</h2>
+      <div class="menu-grid"></div>
+    `;
+
     const grid = section.querySelector(".menu-grid");
 
     group.items.forEach(item => {
       const [name, price, image, largePrice] = item;
+
       const card = document.createElement("article");
       card.className = "menu-card";
+
       const safeName = escapeHTML(name);
+
       card.innerHTML = `
-        <img src="${image}" alt="${safeName}" loading="lazy" referrerpolicy="no-referrer"
-             onerror="this.onerror=null;this.src='https://placehold.co/700x450/eee3dc/6b161b?text='+encodeURIComponent('${safeName}')">
+        <img src="${image}" alt="${safeName}"
+          loading="lazy"
+          referrerpolicy="no-referrer"
+          onerror="this.onerror=null;this.src='https://placehold.co/700x450/eee3dc/6b161b?text='+encodeURIComponent('${safeName}')">
+
         <div class="item-details">
           <h3>${safeName}</h3>
-          <p class="price">${largePrice ? `₹${price} / ₹${largePrice}` : `₹${price}`}</p>
-          ${largePrice
-            ? `<button type="button" onclick="addToCart('${safeName} (Med)', ${price})">Add Med (₹${price})</button>
-               <button class="secondary" type="button" onclick="addToCart('${safeName} (Large)', ${largePrice})">Add Large (₹${largePrice})</button>`
-            : `<button type="button" onclick="addToCart('${safeName}', ${price})"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>`}
-        </div>`;
+          <p class="price">
+            ${largePrice ? `₹${price} / ₹${largePrice}` : `₹${price}`}
+          </p>
+
+          ${
+            largePrice
+              ? `
+                <button type="button"
+                  onclick="addToCart('${safeName} (Med)', ${price})">
+                  Add Med (₹${price})
+                </button>
+
+                <button class="secondary" type="button"
+                  onclick="addToCart('${safeName} (Large)', ${largePrice})">
+                  Add Large (₹${largePrice})
+                </button>
+              `
+              : `
+                <button type="button"
+                  onclick="addToCart('${safeName}', ${price})">
+                  <i class="fa-solid fa-cart-plus"></i>
+                  Add to Cart
+                </button>
+              `
+          }
+        </div>
+      `;
+
       grid.appendChild(card);
     });
+
     root.appendChild(section);
   });
 }
 
 function escapeHTML(value) {
   return String(value).replace(/[&<>"']/g, ch => ({
-    "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
   }[ch]));
 }
 
 // ================= CART =================
 function toggleCart() {
   const modal = document.getElementById("cart-modal");
+
   modal.classList.toggle("open");
-  modal.setAttribute("aria-hidden", String(!modal.classList.contains("open")));
+
+  modal.setAttribute(
+    "aria-hidden",
+    String(!modal.classList.contains("open"))
+  );
 }
 
 function addToCart(name, price) {
   const existing = cart.find(item => item.name === name);
-  if (existing) existing.quantity += 1;
-  else cart.push({ name, price, quantity: 1 });
+
+  if (existing) {
+    existing.quantity += 1;
+  } else {
+    cart.push({
+      name,
+      price,
+      quantity: 1
+    });
+  }
+
   updateCartUI();
 }
 
 function updateCartUI() {
   const items = document.getElementById("cart-items");
-  let count = 0, total = 0;
+
+  let count = 0;
+  let total = 0;
+
   items.innerHTML = "";
 
   if (!cart.length) {
@@ -191,10 +281,23 @@ function updateCartUI() {
     cart.forEach((item, index) => {
       count += item.quantity;
       total += item.price * item.quantity;
+
       const row = document.createElement("div");
       row.className = "cart-item";
-      row.innerHTML = `<div><h4>${escapeHTML(item.name)}</h4><p>₹${item.price} × ${item.quantity}</p></div>
-        <button class="remove-item" type="button" onclick="removeFromCart(${index})">Remove</button>`;
+
+      row.innerHTML = `
+        <div>
+          <h4>${escapeHTML(item.name)}</h4>
+          <p>₹${item.price} × ${item.quantity}</p>
+        </div>
+
+        <button class="remove-item"
+          type="button"
+          onclick="removeFromCart(${index})">
+          Remove
+        </button>
+      `;
+
       items.appendChild(row);
     });
   }
@@ -209,20 +312,35 @@ function removeFromCart(index) {
 }
 
 async function checkout() {
-  if (!cart.length) return alert("Your cart is empty!");
+  if (!cart.length) {
+    return alert("Your cart is empty!");
+  }
 
   if (!currentUser) {
     toggleCart();
     openAuth();
     setAuthMode("login");
-    showAuthMessage("Please login before placing your order.", false);
+
+    showAuthMessage(
+      "Please login before placing your order.",
+      false
+    );
+
     return;
   }
 
-  const summary = cart.map(item => `${item.name} × ${item.quantity}`).join("\n");
-  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const summary = cart
+    .map(item => `${item.name} × ${item.quantity}`)
+    .join("\n");
 
-  alert(`Order summary:\n${summary}\n\nTotal: ₹${total}\n\nYour cart is ready. Connect an order-management/WhatsApp workflow to submit this order to the restaurant.`);
+  const total = cart.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
+
+  alert(
+    `Order summary:\n${summary}\n\nTotal: ₹${total}\n\nYour cart is ready. Connect an order-management/WhatsApp workflow to submit this order to the restaurant.`
+  );
 
   cart = [];
   updateCartUI();
@@ -232,94 +350,182 @@ async function checkout() {
 // ================= AUTH UI =================
 function openAuth() {
   if (currentUser) {
-    const choice = confirm("You are logged in. Do you want to log out?");
+    const choice = confirm(
+      "You are logged in. Do you want to log out?"
+    );
+
     if (choice) logout();
+
     return;
   }
 
   const modal = document.getElementById("auth-modal");
+
   modal.classList.add("open");
   modal.setAttribute("aria-hidden", "false");
+
   setAuthMode("login");
 }
 
 function closeAuth() {
   const modal = document.getElementById("auth-modal");
+
   modal.classList.remove("open");
   modal.setAttribute("aria-hidden", "true");
+
   showAuthMessage("", false);
 }
 
 function setAuthMode(mode) {
   authMode = mode;
+
   const signup = mode === "signup";
 
-  document.getElementById("signup-fields").classList.toggle("hidden", !signup);
-  document.getElementById("login-tab").classList.toggle("active", !signup);
-  document.getElementById("signup-tab").classList.toggle("active", signup);
+  document.getElementById("signup-fields")
+    .classList.toggle("hidden", !signup);
 
-  document.getElementById("auth-title").textContent = signup ? "Create your account" : "Welcome back!";
-  document.getElementById("auth-subtitle").textContent = signup
-    ? "Enter your details to create your Amir Cafe account."
-    : "Login to continue ordering your favourites.";
+  document.getElementById("login-tab")
+    .classList.toggle("active", !signup);
 
-  document.getElementById("auth-submit").textContent = signup ? "Create Account" : "Login";
-  document.getElementById("customer-password").setAttribute("autocomplete", signup ? "new-password" : "current-password");
+  document.getElementById("signup-tab")
+    .classList.toggle("active", signup);
+
+  document.getElementById("auth-title").textContent =
+    signup ? "Create your account" : "Welcome back!";
+
+  document.getElementById("auth-subtitle").textContent =
+    signup
+      ? "Enter your details to create your Amir Cafe account."
+      : "Login to continue ordering your favourites.";
+
+  document.getElementById("auth-submit").textContent =
+    signup ? "Create Account" : "Login";
+
+  document.getElementById("customer-password")
+    .setAttribute(
+      "autocomplete",
+      signup ? "new-password" : "current-password"
+    );
 
   showAuthMessage("", false);
 }
 
 function showAuthMessage(message, success) {
   const el = document.getElementById("auth-message");
+
   el.textContent = message || "";
   el.classList.toggle("success", Boolean(success));
 }
 
 function togglePassword() {
   const input = document.getElementById("customer-password");
-  input.type = input.type === "password" ? "text" : "password";
+
+  input.type =
+    input.type === "password" ? "text" : "password";
 }
 
 function setBusy(busy) {
   const button = document.getElementById("auth-submit");
+
   button.disabled = busy;
-  button.textContent = busy ? "Please wait..." : (authMode === "signup" ? "Create Account" : "Login");
+
+  button.textContent = busy
+    ? "Please wait..."
+    : (authMode === "signup" ? "Create Account" : "Login");
 }
 
+// ================= PHONE VALIDATION =================
 function getPhoneNumber() {
-  if (!phoneInput) throw new Error("Country selector is not ready. Please refresh the page.");
-
-  const number = phoneInput.getNumber();
-
-  if (!number || !phoneInput.isValidNumber()) {
-    throw new Error("Please enter a valid mobile number with the correct country code.");
+  if (!phoneInput) {
+    throw new Error(
+      "Country selector is not ready. Please refresh the page."
+    );
   }
 
-  return number;
+  const country = phoneInput.getSelectedCountryData();
+  const input = document.getElementById("customer-phone");
+
+  // Remove spaces, dashes and other characters
+  const digits = input.value.replace(/\D/g, "");
+
+  if (!country || !digits) {
+    throw new Error("Please enter your mobile number.");
+  }
+
+  // India: exactly 10 digits, starting from 6, 7, 8 or 9
+  if (country.iso2 === "in") {
+    if (!/^[6-9]\d{9}$/.test(digits)) {
+      throw new Error(
+        "Please enter a valid 10-digit Indian mobile number."
+      );
+    }
+  }
+
+  // Bangladesh: 11 digits beginning with 01
+  // or 10 digits beginning with 1
+  else if (country.iso2 === "bd") {
+    if (!/^(01\d{9}|1\d{9})$/.test(digits)) {
+      throw new Error(
+        "Please enter a valid Bangladesh mobile number."
+      );
+    }
+  }
+
+  // Other countries: use international telephone validation
+  else {
+    if (!phoneInput.isValidNumber()) {
+      throw new Error("Please enter a valid mobile number.");
+    }
+  }
+
+  const fullNumber = phoneInput.getNumber();
+
+  if (!fullNumber) {
+    throw new Error(
+      "Could not read your international phone number."
+    );
+  }
+
+  return fullNumber;
 }
 
-async function saveCustomerProfile(user, fullName, phone, address) {
+// ================= CUSTOMER PROFILE =================
+async function saveCustomerProfile(
+  user,
+  fullName,
+  phone,
+  address
+) {
   if (!supabaseClient || !user) return;
 
   const profile = {
     id: user.id,
-    full_name: fullName || user.user_metadata?.full_name || "",
+    full_name:
+      fullName || user.user_metadata?.full_name || "",
     phone: phone || user.phone || "",
-    address: address || user.user_metadata?.address || ""
+    address:
+      address || user.user_metadata?.address || ""
   };
 
   const { error } = await supabaseClient
     .from("customer_profiles")
     .upsert(profile, { onConflict: "id" });
 
-  if (error) console.error("Profile save error:", error.message);
+  if (error) {
+    console.error("Profile save error:", error.message);
+  }
 }
 
+// ================= LOGIN / REGISTER =================
 async function handleAuthSubmit(event) {
   event.preventDefault();
 
   if (!supabaseClient) {
-    showAuthMessage("Supabase config is missing. Add your Project URL and Publishable/anon key in script.js.", false);
+    showAuthMessage(
+      "Supabase config is missing. Add your Project URL and Publishable key in script.js.",
+      false
+    );
+
     return;
   }
 
@@ -328,76 +534,115 @@ async function handleAuthSubmit(event) {
 
   try {
     const phone = getPhoneNumber();
-    const password = document.getElementById("customer-password").value;
+
+    const password =
+      document.getElementById("customer-password").value;
 
     if (password.length < 6) {
-      throw new Error("Password must be at least 6 characters.");
+      throw new Error(
+        "Password must be at least 6 characters."
+      );
     }
 
+    // ================= SIGN UP =================
     if (authMode === "signup") {
-      const fullName = document.getElementById("customer-name").value.trim();
-      const address = document.getElementById("customer-address").value.trim();
+      const fullName =
+        document.getElementById("customer-name").value.trim();
 
-      if (!fullName) throw new Error("Please enter your full name.");
-      if (!address) throw new Error("Please enter your delivery address.");
+      const address =
+        document.getElementById("customer-address").value.trim();
 
-      const { data, error } = await supabaseClient.auth.signUp({
-        phone,
-        password,
-        options: {
-          data: {
-            full_name: fullName,
-            address: address
+      if (!fullName) {
+        throw new Error("Please enter your full name.");
+      }
+
+      if (!address) {
+        throw new Error("Please enter your delivery address.");
+      }
+
+      const { data, error } =
+        await supabaseClient.auth.signUp({
+          phone,
+          password,
+          options: {
+            data: {
+              full_name: fullName,
+              address: address
+            }
           }
-        }
-      });
+        });
 
       if (error) throw error;
 
       if (!data.session) {
-        throw new Error("Account created, but no login session was returned. Check that Phone Confirmations are OFF in Supabase.");
+        throw new Error(
+          "Account created, but no login session was returned. Check your Supabase phone confirmation settings."
+        );
       }
 
       currentUser = data.user;
 
-      await saveCustomerProfile(data.user, fullName, phone, address);
+      await saveCustomerProfile(
+        data.user,
+        fullName,
+        phone,
+        address
+      );
+
       updateAccountUI(fullName);
 
-      showAuthMessage("Account created successfully. You are now logged in.", true);
+      showAuthMessage(
+        "Account created successfully. You are now logged in.",
+        true
+      );
+
       setTimeout(closeAuth, 900);
 
+    // ================= LOGIN =================
     } else {
-      const { data, error } = await supabaseClient.auth.signInWithPassword({
-        phone,
-        password
-      });
+      const { data, error } =
+        await supabaseClient.auth.signInWithPassword({
+          phone,
+          password
+        });
 
       if (error) throw error;
 
       currentUser = data.user;
 
-      const { data: profileData } = await supabaseClient
-        .from("customer_profiles")
-        .select("full_name, phone, address")
-        .eq("id", data.user.id)
-        .maybeSingle();
+      const { data: profileData } =
+        await supabaseClient
+          .from("customer_profiles")
+          .select("full_name, phone, address")
+          .eq("id", data.user.id)
+          .maybeSingle();
 
-      const name = profileData?.full_name ||
-        data.user.user_metadata?.full_name || "Customer";
+      const name =
+        profileData?.full_name ||
+        data.user.user_metadata?.full_name ||
+        "Customer";
 
       updateAccountUI(name);
 
-      showAuthMessage("Login successful. Welcome!", true);
+      showAuthMessage(
+        "Login successful. Welcome!",
+        true
+      );
+
       setTimeout(closeAuth, 700);
     }
 
   } catch (error) {
-    showAuthMessage(error.message || "Something went wrong. Please try again.", false);
+    showAuthMessage(
+      error.message || "Something went wrong. Please try again.",
+      false
+    );
   } finally {
     setBusy(false);
   }
 }
 
+// ================= ACCOUNT UI =================
 function updateAccountUI(name) {
   const label = document.getElementById("account-label");
 
@@ -406,24 +651,33 @@ function updateAccountUI(name) {
     : "Login / Register";
 
   document.getElementById("account-button").title =
-    currentUser ? "Click to log out" : "Login or create account";
+    currentUser
+      ? "Click to log out"
+      : "Login or create account";
 }
 
 async function logout() {
   if (supabaseClient) {
-    const { error } = await supabaseClient.auth.signOut();
-    if (error) return alert(error.message);
+    const { error } =
+      await supabaseClient.auth.signOut();
+
+    if (error) {
+      return alert(error.message);
+    }
   }
 
   currentUser = null;
   updateAccountUI();
 }
 
+// ================= INITIALIZE AUTH =================
 async function initAuth() {
   const form = document.getElementById("auth-form");
+
   form.addEventListener("submit", handleAuthSubmit);
 
-  const phoneElement = document.getElementById("customer-phone");
+  const phoneElement =
+    document.getElementById("customer-phone");
 
   if (window.intlTelInput) {
     phoneInput = window.intlTelInput(phoneElement, {
@@ -432,35 +686,53 @@ async function initAuth() {
       nationalMode: true,
       autoPlaceholder: "polite",
       formatOnDisplay: true,
-      preferredCountries: ["in", "bd", "us", "gb", "ae", "ca"],
-      utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/js/utils.js"
+      preferredCountries: [
+        "in", "bd", "us", "gb", "ae", "ca"
+      ],
+      utilsScript:
+        "https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/js/utils.js"
     });
+  } else {
+    showAuthMessage(
+      "Phone input library did not load. Please refresh the page.",
+      false
+    );
   }
 
   if (!supabaseClient) return;
 
-  const { data: { session } } = await supabaseClient.auth.getSession();
+  const {
+    data: { session }
+  } = await supabaseClient.auth.getSession();
 
   if (session?.user) {
     await restoreUser(session.user);
   }
 
-  supabaseClient.auth.onAuthStateChange((_event, sessionNow) => {
-    if (sessionNow?.user) {
-      currentUser = sessionNow.user;
-      const name = sessionNow.user.user_metadata?.full_name || "Customer";
-      updateAccountUI(name);
-    } else {
-      currentUser = null;
-      updateAccountUI();
+  supabaseClient.auth.onAuthStateChange(
+    (_event, sessionNow) => {
+      if (sessionNow?.user) {
+        currentUser = sessionNow.user;
+
+        const name =
+          sessionNow.user.user_metadata?.full_name ||
+          "Customer";
+
+        updateAccountUI(name);
+      } else {
+        currentUser = null;
+        updateAccountUI();
+      }
     }
-  });
+  );
 }
 
+// ================= RESTORE USER =================
 async function restoreUser(user) {
   currentUser = user;
 
-  let name = user.user_metadata?.full_name || "Customer";
+  let name =
+    user.user_metadata?.full_name || "Customer";
 
   if (supabaseClient) {
     const { data } = await supabaseClient
@@ -469,7 +741,9 @@ async function restoreUser(user) {
       .eq("id", user.id)
       .maybeSingle();
 
-    if (data?.full_name) name = data.full_name;
+    if (data?.full_name) {
+      name = data.full_name;
+    }
   }
 
   updateAccountUI(name);
