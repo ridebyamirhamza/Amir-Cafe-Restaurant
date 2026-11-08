@@ -214,8 +214,8 @@ items: [
 ["Strawberry Shake",169,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOn71OmdbgjdgeTymjt7XzEdjUnCdEcpV-_0_-h1bCCg&s=10"],
 ["Butter Scotch",169,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk7FXal_PBAnRYcuUZsbaMPfQa38OWUnDBL3tChsNxAA&s=10"],
 ["Kitkat Shake",149,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFDEofaM-a2qWqFaMp3Hx2YsSkXAsxGxyivqjQSNrKLw&s=10"],
-["Mango Shake",220,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlfmkCk0PJnryzrpiG2oDzlAKWT48sAYmv1pjddya5_Q&s=10"],
-["Bubblegum Shake",160,"https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=700"]
+["Mango Shake",220,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkTo3Db0Hly6vrpUWeCRL15oOQmr3AmNkvMkYwfgCApw&s=10"],
+["Bubblegum Shake",160,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTo2t2hq8I5NqwJ_1ztqpJQbzfkNqKP9_VgeVzkLLn5lw&s=10"]
 ]},
 
 {
@@ -224,8 +224,8 @@ icon: "fa-martini-glass-citrus",
 items: [
 ["Orange Mojito",140,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShrqDAbzI_COp3ra8sOXS6Q0LqTYpkGUS65MFq_VhrZw&s=10"],
 ["Watermelon Mojito",140,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTClvVGHxlBPKD8JlxsiwwjZgEMJeM_zlioLH2mIEXXGg&s=10"],
-["Blue Berry Mojito",140,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9BQR0dZf9u-8ijElN0UU-NRctCVEVM0JxEEdM5ix9aA&s=10"],
-["Mango Mojito",140,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHyzotNa-9CjeSOym-SUeaCitgni0nAahfDyy8yB6ESg&s=10"],
+["Blue Berry Mojito",140,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeoo0ipa6WeExittd52UKUMAQZzm_-XrK3gDb5q2ChZw&s=10"],
+["Mango Mojito",140,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlZ1gwODF47B0JHUzufboqlFgNnSpaAu6NGd4Mpt8PgQ&s=10"],
 ["Mint Mojito",140,"https://puffnsip.in/_next/image?url=%2Fuploads%2Fmedia_2026-10_9875870a-4313-48ea-90c6-c085afb12ac1.webp&w=1080&q=75"]
 ]},
 
@@ -233,8 +233,8 @@ items: [
 category: "Coffee",
 icon: "fa-mug-saucer",
 items: [
-["Hot Coffee",99,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQq3P6ktvrer8ZSkE5KImYsvAfDNb0q9WKTQTIILVFM0g&s=10"],
-["Black Coffee",140,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8ZRC6OXdpCFE57ibsXHt5Tou_PZGFwaCp6sBOT0HSQA&s=10"]
+["Hot Coffee",99,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1HoJQPZWIIS0R54-3S2Dg3c-MA7ZQ0Cbk7F7CYQNQEA&s=10"],
+["Black Coffee",140,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8G02J8e-z8Vhj-obUFEkjeG_Jpx7H55MNJthrGj7H-w&s=10"]
 ]}
 
 ];
