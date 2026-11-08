@@ -235,7 +235,6 @@ icon: "fa-mug-saucer",
 items: [
 ["Hot Coffee",99,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1HoJQPZWIIS0R54-3S2Dg3c-MA7ZQ0Cbk7F7CYQNQEA&s=10"],
 ["Black Coffee",140,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8G02J8e-z8Vhj-obUFEkjeG_Jpx7H55MNJthrGj7H-w&s=10"]
-["Americano Coffee",140,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJKinW44pcko5zDSbJsVxIkjd7zXZMdATE3mAfeu5fvQ&s=10"]
 ]}
 
 ];
