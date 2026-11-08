@@ -1,121 +1,136 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#650d12">
-  <title>Amir Cafe & Restaurant</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/css/intlTelInput.css">
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/js/intlTelInput.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#650d12">
+<title>Amir Cafe & Restaurant</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
 <header class="site-header">
-  <a class="brand" href="#home">
-    <img src="https://i.ibb.co/d0L3sYzZ/87499.png" alt="Logo">
-    <span class="brand-divider"></span>
-    <span class="brand-name">Amir Cafe <span>& Restaurant</span></span>
-  </a>
-  <div class="header-actions">
-    <button class="account-chip" id="account-button" type="button" onclick="openAuth()">
-      <i class="fa-regular fa-user"></i>
-      <span id="account-label">Login / Register</span>
-    </button>
-    <button class="cart-btn" type="button" onclick="toggleCart()">
-      <i class="fa-solid fa-cart-shopping"></i>
-      <span id="cart-count">0</span>
-    </button>
-  </div>
+<a class="brand" href="#home">
+<img src="https://i.ibb.co/d0L3sYzZ/87499.png" alt="Logo">
+<span class="brand-divider"></span>
+<span class="brand-name">Amir Cafe <span>& Restaurant</span></span>
+</a>
+<div class="header-actions">
+<button class="account-chip" id="account-button" type="button" onclick="openAuth()">
+<i class="fa-regular fa-user"></i>
+<span id="account-label">Login / Register</span>
+</button>
+<button class="cart-btn" type="button" onclick="toggleCart()">
+<i class="fa-solid fa-cart-shopping"></i>
+<span id="cart-count">0</span>
+</button>
+</div>
 </header>
 
 <main id="home">
-  <section class="hero">
-    <div class="hero-copy">
-      <p class="eyebrow">WELCOME TO AMIR CAFE</p>
-      <h1>Delicious Food Delivered<br>To Your Door</h1>
-      <p>Explore our fresh and tasty menu items crafted just for you!</p>
-      <a href="#menu" class="hero-link">Explore Menu <i class="fa-solid fa-arrow-down"></i></a>
-    </div>
-  </section>
+<section class="hero">
+<div class="hero-copy">
+<p class="eyebrow">WELCOME TO AMIR CAFE</p>
+<h1>Delicious Food Delivered<br>To Your Door</h1>
+<p>Explore our fresh and tasty menu items crafted just for you!</p>
+<a href="#menu" class="hero-link">Explore Menu <i class="fa-solid fa-arrow-down"></i></a>
+</div>
+</section>
 
-  <nav class="category-nav" id="category-nav"></nav>
-  <section class="container" id="menu">
-    <div id="menu-sections"></div>
-  </section>
+<nav class="category-nav" id="category-nav"></nav>
+<section class="container" id="menu">
+<div id="menu-sections"></div>
+</section>
 </main>
 
 <div id="cart-modal" class="cart-modal" aria-hidden="true">
-  <div class="cart-backdrop" onclick="toggleCart()"></div>
-  <aside class="cart-content">
-    <div class="cart-heading">
-      <div><p class="eyebrow">YOUR ORDER</p><h2>Your Cart</h2></div>
-      <button class="close-btn" onclick="toggleCart()">&times;</button>
-    </div>
-    <div id="cart-items"><p class="empty-cart">Your cart is empty.</p></div>
-    <div class="cart-total">
-      <div class="total-line">
-        <span>Total</span>
-        <strong>₹<span id="cart-total-price">0</span></strong>
-      </div>
-      <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
-    </div>
-  </aside>
+<div class="cart-backdrop" onclick="toggleCart()"></div>
+<aside class="cart-content">
+<div class="cart-heading">
+<div><p class="eyebrow">YOUR ORDER</p><h2>Your Cart</h2></div>
+<button class="close-btn" onclick="toggleCart()">&times;</button>
+</div>
+<div id="cart-items"><p class="empty-cart">Your cart is empty.</p></div>
+<div class="cart-total">
+<div class="total-line">
+<span>Total</span>
+<strong>₹<span id="cart-total-price">0</span></strong>
+</div>
+<button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+</div>
+</aside>
 </div>
 
 <div id="auth-modal" class="auth-modal" aria-hidden="true">
-  <div class="auth-backdrop" onclick="closeAuth()"></div>
-  <section class="auth-card" role="dialog" aria-modal="true">
-    <button class="auth-close" onclick="closeAuth()">&times;</button>
-    <div class="auth-brand">
-      <img src="https://i.ibb.co/d0L3sYzZ/87499.png" alt="">
-      <div>
-        <strong>Amir Cafe <span>& Restaurant</span></strong>
-        <small>Good food. Great moments.</small>
-      </div>
-    </div>
+<div class="auth-backdrop" onclick="closeAuth()"></div>
+<section class="auth-card" role="dialog" aria-modal="true">
 
-    <h2 id="auth-title">Welcome back!</h2>
-    <p class="auth-subtitle" id="auth-subtitle">Login to continue ordering your favourites.</p>
+<button class="auth-close" onclick="closeAuth()">&times;</button>
 
-    <div class="auth-tabs">
-      <button id="login-tab" class="auth-tab active" onclick="setAuthMode('login')">Login</button>
-      <button id="signup-tab" class="auth-tab" onclick="setAuthMode('signup')">Create Account</button>
-    </div>
+<div class="auth-brand">
+<img src="https://i.ibb.co/d0L3sYzZ/87499.png" alt="">
+<div>
+<strong>Amir Cafe <span>& Restaurant</span></strong>
+<small>Good food. Great moments.</small>
+</div>
+</div>
 
-    <form id="auth-form">
-      <div id="signup-fields" class="signup-fields hidden">
-        <label for="customer-name">Full name</label>
-        <input id="customer-name" type="text" autocomplete="name" placeholder="Enter your full name">
+<h2 id="auth-title">Welcome back!</h2>
+<p class="auth-subtitle" id="auth-subtitle">Login to continue ordering your favourites.</p>
 
-        <label for="customer-address">Delivery address</label>
-        <textarea id="customer-address" rows="2" placeholder="House / street / area / city"></textarea>
-      </div>
+<div class="auth-tabs">
+<button id="login-tab" class="auth-tab active" onclick="setAuthMode('login')">Login</button>
+<button id="signup-tab" class="auth-tab" onclick="setAuthMode('signup')">Create Account</button>
+</div>
 
-      <label for="customer-phone">Mobile number</label>
-      <input id="customer-phone" type="tel" autocomplete="tel" placeholder="Enter mobile number" required>
+<form id="auth-form">
 
-      <label for="customer-password">Password</label>
-      <div class="password-wrap">
-        <input id="customer-password" type="password" minlength="6" placeholder="At least 6 characters" required>
-        <button type="button" class="password-toggle" onclick="togglePassword()">
-          <i class="fa-regular fa-eye"></i>
-        </button>
-      </div>
+<div id="signup-fields" class="hidden">
+<label for="customer-name">Full name</label>
+<input id="customer-name" type="text" autocomplete="name" placeholder="Enter your full name">
 
-      <p class="auth-message" id="auth-message"></p>
-      <button class="auth-submit" id="auth-submit" type="submit">Login</button>
-    </form>
-    <p class="auth-note">Phone number and password login. No SMS OTP is used in this setup.</p>
-  </section>
+<label for="customer-address">Delivery address</label>
+<textarea id="customer-address" rows="2" placeholder="House / street / area / city"></textarea>
+</div>
+
+<label for="customer-phone">Mobile number</label>
+
+<div class="phone-control">
+<button class="country-trigger" id="country-trigger" type="button" aria-expanded="false">
+<span id="selected-flag">🇮🇳</span>
+<span id="selected-dial">+91</span>
+<i class="fa-solid fa-chevron-down"></i>
+</button>
+
+<input id="customer-phone" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="Enter mobile number" required>
+
+<div class="country-menu hidden" id="country-menu">
+<input id="country-search" class="country-search" type="search" placeholder="Search country or dial code">
+<div id="country-list" class="country-list" role="listbox"></div>
+</div>
+</div>
+
+<label for="customer-password">Password</label>
+<div class="password-wrap">
+<input id="customer-password" type="password" minlength="6" placeholder="At least 6 characters" required>
+<button type="button" class="password-toggle" onclick="togglePassword()">
+<i class="fa-regular fa-eye"></i>
+</button>
+</div>
+
+<p class="auth-message" id="auth-message" aria-live="polite"></p>
+<button class="auth-submit" id="auth-submit" type="submit">Login</button>
+</form>
+
+<p class="auth-note">Mobile number and password login. SMS OTP is currently disabled.</p>
+</section>
 </div>
 
 <footer>
-  <div class="footer-brand">Amir Cafe <span>& Restaurant</span></div>
-  <p>&copy; 2026 Amir Cafe & Restaurant. All Rights Reserved.</p>
+<div class="footer-brand">Amir Cafe <span>& Restaurant</span></div>
+<p>&copy; 2026 Amir Cafe & Restaurant. All Rights Reserved.</p>
 </footer>
 
 <script src="script.js"></script>
