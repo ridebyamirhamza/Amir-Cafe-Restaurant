@@ -622,7 +622,7 @@ async function handleAuthSubmit(event) {
         const password = document.getElementById("customer-password").value;
 
         if (password.length < 6) {
-            throw Error("পাসওয়ার্ড অন্তত ৬ অক্ষরের হতে হবে।");
+            throw Error("The password must be at least 6 characters long.");
         }
 
         // SIGNUP
@@ -630,8 +630,8 @@ async function handleAuthSubmit(event) {
             const name = document.getElementById("customer-name").value.trim();
             const address = document.getElementById("customer-address").value.trim();
 
-            if (!name) throw Error("দয়া করে আপনার পুরো নাম লিখুন।");
-            if (!address) throw Error("দয়া করে আপনার ডেলিভারি ঠিকানা লিখুন।");
+            if (!name) throw Error("Please write your full name.");
+            if (!address) throw Error("Please enter your delivery address.");
 
             const userData = { name, phone, password, address };
             localStorage.setItem("amir_cafe_user_" + phone, JSON.stringify(userData));
@@ -640,7 +640,7 @@ async function handleAuthSubmit(event) {
             currentUser = userData;
             updateAccountUI(name);
 
-            showAuthMessage("অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে!", true);
+            showAuthMessage("Account successfully created!", true);
             setTimeout(closeAuth, 900);
         } 
         // LOGIN
@@ -648,25 +648,25 @@ async function handleAuthSubmit(event) {
             const savedData = localStorage.getItem("amir_cafe_user_" + phone);
 
             if (!savedData) {
-                throw Error("এই নম্বর দিয়ে কোনো অ্যাকাউন্ট নেই! আগে 'Create Account' করুন।");
+                throw Error("There is no account associated with this number! Please 'Create Account' first.");
             }
 
             const userData = JSON.parse(savedData);
 
             if (userData.password !== password) {
-                throw Error("ভুল পাসওয়ার্ড!");
+                throw Error("Wrong Password");
             }
 
             localStorage.setItem("amir_cafe_current_user", JSON.stringify(userData));
             currentUser = userData;
             updateAccountUI(userData.name);
 
-            showAuthMessage("লগইন সফল হয়েছে!", true);
+            showAuthMessage("Login Successful", true);
             setTimeout(closeAuth, 700);
         }
 
     } catch (error) {
-        showAuthMessage(error.message || "কোথাও কোনো সমস্যা হয়েছে।", false);
+        showAuthMessage(error.message || "There is a problem somewhere.", false);
     } finally {
         setBusy(false);
     }
