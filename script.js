@@ -103,14 +103,14 @@ items: [
 category: "Munchies",
 icon: "fa-bowl-rice",
 items: [
-["Masala Papad",140,"https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=700"],
-["French Fries",149,"https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=700"],
-["Onion Rings",169,"https://images.unsplash.com/photo-1639024471283-03518883512d?w=700"],
-["Cheese Nachos",179,"https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?w=700"],
-["Peanut Masala",169,"https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=700"],
-["Crispy Corn",199,"https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=700"],
-["Peri Peri Fries",179,"https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?w=700"],
-["Creamy Fries",169,"https://images.unsplash.com/photo-1585109649139-366815a0d713?w=700"]
+["Masala Papad",140,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2KRCG3JEhqCbj6bsCC0XrMIFNwET6D6kORRKNRA0icA&s=10"],
+["French Fries",149,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwn16qcQVv_D668Gzq1YGyWJQUfDeXGIxj0keiKgiSww&s=10"],
+["Onion Rings",169,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe3lLHtAtriRV4gy9sToxFmPBEKhEfgGMJGzqkyfqP1A&s=10"],
+["Cheese Nachos",179,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQohQveFUrOHixyozTAYmmkSBuVaBfEPk3qbPbXr-VvBg&s=10"],
+["Peanut Masala",169,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXAIpkPZtOfe8zMhpS2m86NjDA9l1vWT1j-AaNHHoAGg&s=10"],
+["Crispy Corn",199,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJZbks-fzlHVwP1nhf9NoO3rIxEy0rlNRCMS2qKWHARg&s=10"],
+["Peri Peri Fries",179,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmEWj90itHgKlRUV5fkIhfRwuwg4eZBk4oJr9npwyZsQ&s=10"],
+["Creamy Fries",169,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT163Rryvvt4sOj9hG262qYFtfIbgcYyGFdmwPAuqD91Q&s=10"]
 ]},
 
 {
