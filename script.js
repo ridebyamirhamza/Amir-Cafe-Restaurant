@@ -1,26 +1,11 @@
 // ==========================================
 // AMIR CAFE & RESTAURANT - JAVASCRIPT
-// Supabase Phone + Password Authentication
-// No SMS OTP
+// LocalStorage Based Authentication (No OTP/Server Required)
 // ==========================================
 
-// SUPABASE CONFIGURATION
-const SUPABASE_URL = "https://imtofnjwhvalseffdagv.supabase.co/rest/v1/";
-
-// এখানে তোমার Supabase Publishable / anon key বসাবে
-const SUPABASE_ANON_KEY = "sb_publishable_pPCh_B1H7--pLxHaLKAwWQ_eHPAbdCx";
-
-let supabaseClient = null;
-
-if (
-    window.supabase &&
-    !SUPABASE_ANON_KEY.includes("PASTE_YOUR_")
-) {
-    supabaseClient = window.supabase.createClient(
-        SUPABASE_URL,
-        SUPABASE_ANON_KEY
-    );
-}
+let cart = [];
+let authMode = "login";
+let currentUser = null;
 
 
 // ==========================================
@@ -96,10 +81,6 @@ const COUNTRIES = COUNTRY_CODES.map(country => ({
 let selectedCountry =
     COUNTRIES.find(country => country.iso === "in") ||
     COUNTRIES[0];
-
-let cart = [];
-let authMode = "login";
-let currentUser = null;
 
 
 // ==========================================
@@ -279,7 +260,6 @@ function escapeHTML(value) {
 // ==========================================
 
 function renderCountryList(search = "") {
-
     const list = document.getElementById("country-list");
     const query = search.trim().toLowerCase();
 
@@ -294,15 +274,12 @@ function renderCountryList(search = "") {
     list.innerHTML = "";
 
     if (!found.length) {
-        list.innerHTML =
-            '<div class="country-empty">No country found</div>';
+        list.innerHTML = '<div class="country-empty">No country found</div>';
         return;
     }
 
     found.forEach(country => {
-
         const item = document.createElement("button");
-
         item.type = "button";
         item.className = "country-option";
 
@@ -323,31 +300,21 @@ function renderCountryList(search = "") {
 
 
 function selectCountry(country) {
-
     selectedCountry = country;
-
-    document.getElementById("selected-flag").textContent =
-        country.flag;
-
-    document.getElementById("selected-dial").textContent =
-        "+" + country.dial;
+    document.getElementById("selected-flag").textContent = country.flag;
+    document.getElementById("selected-dial").textContent = "+" + country.dial;
 }
 
 
 function toggleCountryMenu(force) {
-
     const menu = document.getElementById("country-menu");
     const button = document.getElementById("country-trigger");
 
     if (!menu || !button) return;
 
-    const open =
-        typeof force === "boolean"
-            ? force
-            : menu.classList.contains("hidden");
+    const open = typeof force === "boolean" ? force : menu.classList.contains("hidden");
 
     menu.classList.toggle("hidden", !open);
-
     button.setAttribute("aria-expanded", String(open));
 
     if (open) {
@@ -363,71 +330,44 @@ function toggleCountryMenu(force) {
 // ==========================================
 
 function getPhoneNumber() {
-
-    const raw =
-        document.getElementById("customer-phone").value.trim();
-
+    const raw = document.getElementById("customer-phone").value.trim();
     let digits = raw.replace(/\D/g, "");
 
     if (!digits) {
         throw Error("Please enter your mobile number.");
     }
 
-    // Detect country code if user enters number with +
     if (raw.startsWith("+")) {
-
         const match = [...COUNTRIES]
             .sort((a, b) => b.dial.length - a.dial.length)
             .find(country => digits.startsWith(country.dial));
 
         if (match) {
-
             selectedCountry = match;
             digits = digits.slice(match.dial.length);
 
-            document.getElementById("selected-flag").textContent =
-                match.flag;
-
-            document.getElementById("selected-dial").textContent =
-                "+" + match.dial;
+            document.getElementById("selected-flag").textContent = match.flag;
+            document.getElementById("selected-dial").textContent = "+" + match.dial;
         }
     }
 
-    // INDIA
     if (selectedCountry.iso === "in") {
-
         if (digits.length === 11 && digits[0] === "0") {
             digits = digits.slice(1);
         }
-
         if (!/^[6-9]\d{9}$/.test(digits)) {
-            throw Error(
-                "India: enter a valid 10-digit mobile number starting with 6, 7, 8 or 9."
-            );
+            throw Error("India: enter a valid 10-digit mobile number starting with 6, 7, 8 or 9.");
         }
-    }
-
-    // BANGLADESH
-    else if (selectedCountry.iso === "bd") {
-
+    } else if (selectedCountry.iso === "bd") {
         if (digits.length === 11 && digits[0] === "0") {
             digits = digits.slice(1);
         }
-
         if (!/^1[3-9]\d{8}$/.test(digits)) {
-            throw Error(
-                "Bangladesh: enter a valid mobile number, e.g. 017XXXXXXXX."
-            );
+            throw Error("Bangladesh: enter a valid mobile number, e.g. 017XXXXXXXX.");
         }
-    }
-
-    // OTHER COUNTRIES
-    else {
-
+    } else {
         if (digits.length < 6 || digits.length > 15) {
-            throw Error(
-                "Enter a mobile number containing 6 to 15 digits."
-            );
+            throw Error("Enter a mobile number containing 6 to 15 digits.");
         }
     }
 
@@ -440,7 +380,6 @@ function getPhoneNumber() {
 // ==========================================
 
 function renderMenu() {
-
     const nav = document.getElementById("category-nav");
     const root = document.getElementById("menu-sections");
 
@@ -450,37 +389,25 @@ function renderMenu() {
     root.innerHTML = "";
 
     MENU.forEach((group, index) => {
-
         const id = "category-" + index;
-
         const button = document.createElement("button");
 
-        button.className =
-            "category-pill" + (index === 0 ? " active" : "");
-
+        button.className = "category-pill" + (index === 0 ? " active" : "");
         button.type = "button";
-
         button.innerHTML = `
             <i class="fa-solid ${group.icon}"></i>
             ${escapeHTML(group.category)}
         `;
 
         button.onclick = () => {
-
-            document.getElementById(id).scrollIntoView({
-                behavior: "smooth"
-            });
-
-            document.querySelectorAll(".category-pill")
-                .forEach(item => item.classList.remove("active"));
-
+            document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+            document.querySelectorAll(".category-pill").forEach(item => item.classList.remove("active"));
             button.classList.add("active");
         };
 
         nav.appendChild(button);
 
         const section = document.createElement("section");
-
         section.className = "category-section";
         section.id = id;
 
@@ -492,11 +419,8 @@ function renderMenu() {
         const grid = section.querySelector(".menu-grid");
 
         group.items.forEach(([name, price, image, largePrice]) => {
-
             const card = document.createElement("article");
-
             card.className = "menu-card";
-
             const safeName = escapeHTML(name);
 
             card.innerHTML = `
@@ -506,26 +430,17 @@ function renderMenu() {
                     loading="lazy"
                     onerror="this.onerror=null;this.src='https://placehold.co/700x450/eee3dc/6b161b?text=Food'"
                 >
-
                 <div class="item-details">
-
                     <h3>${safeName}</h3>
-
                     <p class="price">
-                        ${
-                            largePrice
-                                ? `₹${price} / ₹${largePrice}`
-                                : `₹${price}`
-                        }
+                        ${largePrice ? `₹${price} / ₹${largePrice}` : `₹${price}`}
                     </p>
-
                     ${
                         largePrice
                             ? `
                                 <button onclick="addToCart('${safeName} (Med)',${price})">
                                     Add Med (₹${price})
                                 </button>
-
                                 <button
                                     class="secondary"
                                     onclick="addToCart('${safeName} (Large)',${largePrice})"
@@ -540,7 +455,6 @@ function renderMenu() {
                                 </button>
                             `
                     }
-
                 </div>
             `;
 
@@ -557,91 +471,55 @@ function renderMenu() {
 // ==========================================
 
 function toggleCart() {
-
     const modal = document.getElementById("cart-modal");
-
     modal.classList.toggle("open");
-
-    modal.setAttribute(
-        "aria-hidden",
-        String(!modal.classList.contains("open"))
-    );
+    modal.setAttribute("aria-hidden", String(!modal.classList.contains("open")));
 }
 
-
 function addToCart(name, price) {
-
     const existing = cart.find(item => item.name === name);
-
     if (existing) {
         existing.quantity++;
     } else {
-        cart.push({
-            name,
-            price,
-            quantity: 1
-        });
+        cart.push({ name, price, quantity: 1 });
     }
-
     updateCartUI();
 }
 
-
 function updateCartUI() {
-
     const root = document.getElementById("cart-items");
-
     if (!root) return;
 
     let count = 0;
     let total = 0;
-
     root.innerHTML = "";
 
     if (!cart.length) {
-
-        root.innerHTML =
-            '<p class="empty-cart">Your cart is empty.</p>';
-
+        root.innerHTML = '<p class="empty-cart">Your cart is empty.</p>';
     } else {
-
         cart.forEach((item, index) => {
-
             count += item.quantity;
             total += item.price * item.quantity;
 
             const row = document.createElement("div");
-
             row.className = "cart-item";
-
             row.innerHTML = `
                 <div>
                     <h4>${escapeHTML(item.name)}</h4>
                     <p>₹${item.price} × ${item.quantity}</p>
                 </div>
-
-                <button
-                    class="remove-item"
-                    onclick="removeFromCart(${index})"
-                >
-                    Remove
-                </button>
+                <button class="remove-item" onclick="removeFromCart(${index})">Remove</button>
             `;
-
             root.appendChild(row);
         });
     }
 
     document.getElementById("cart-count").textContent = count;
-
     document.getElementById("cart-total-price").textContent = total;
 }
 
-
 function removeFromCart(index) {
-
     cart.splice(index, 1);
-
     updateCartUI();
 }
 
@@ -651,323 +529,145 @@ function removeFromCart(index) {
 // ==========================================
 
 async function checkout() {
-
     if (!cart.length) {
         return alert("Your cart is empty!");
     }
 
     if (!currentUser) {
-
         toggleCart();
         openAuth();
         setAuthMode("login");
-
-        showAuthMessage(
-            "Please login before placing your order.",
-            false
-        );
-
+        showAuthMessage("Please login before placing your order.", false);
         return;
     }
 
-    const summary = cart.map(item =>
-        `${item.name} × ${item.quantity}`
-    ).join("\n");
+    const summary = cart.map(item => `${item.name} × ${item.quantity}`).join("\n");
+    const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-    const total = cart.reduce(
-        (sum, item) => sum + item.price * item.quantity,
-        0
-    );
-
-    alert(
-        `Order summary:\n${summary}\n\nTotal: ₹${total}\n\nYour cart is ready. Connect an order-management/WhatsApp workflow to submit this order to the restaurant.`
-    );
-
+    alert(`Order summary:\n${summary}\n\nTotal: ₹${total}\n\nOrder placed successfully! Thank you.`);
     cart = [];
-
     updateCartUI();
-
     toggleCart();
 }
 
 
 // ==========================================
-// LOGIN / REGISTER
+// LOGIN / REGISTER (LocalStorage)
 // ==========================================
 
 function openAuth() {
-
     if (currentUser) {
-
         if (confirm("You are logged in. Do you want to log out?")) {
             logout();
         }
-
         return;
     }
 
     const modal = document.getElementById("auth-modal");
-
     modal.classList.add("open");
-
     modal.setAttribute("aria-hidden", "false");
-
     setAuthMode("login");
 }
 
-
 function closeAuth() {
-
     const modal = document.getElementById("auth-modal");
-
     modal.classList.remove("open");
-
     modal.setAttribute("aria-hidden", "true");
-
     showAuthMessage("", false);
-
     toggleCountryMenu(false);
 }
 
-
 function setAuthMode(mode) {
-
     authMode = mode;
-
     const signup = mode === "signup";
 
-    document.getElementById("signup-fields")
-        .classList.toggle("hidden", !signup);
+    document.getElementById("signup-fields").classList.toggle("hidden", !signup);
+    document.getElementById("login-tab").classList.toggle("active", !signup);
+    document.getElementById("signup-tab").classList.toggle("active", signup);
 
-    document.getElementById("login-tab")
-        .classList.toggle("active", !signup);
-
-    document.getElementById("signup-tab")
-        .classList.toggle("active", signup);
-
-    document.getElementById("auth-title").textContent =
-        signup ? "Create your account" : "Welcome back!";
-
-    document.getElementById("auth-subtitle").textContent =
-        signup
-            ? "Enter your details to create your Amir Cafe account."
-            : "Login to continue ordering your favourites.";
-
-    document.getElementById("auth-submit").textContent =
-        signup ? "Create Account" : "Login";
-
-    document.getElementById("customer-password").autocomplete =
-        signup ? "new-password" : "current-password";
+    document.getElementById("auth-title").textContent = signup ? "Create your account" : "Welcome back!";
+    document.getElementById("auth-subtitle").textContent = signup ? "Enter your details to create your Amir Cafe account." : "Login to continue ordering your favourites.";
+    document.getElementById("auth-submit").textContent = signup ? "Create Account" : "Login";
+    document.getElementById("customer-password").autocomplete = signup ? "new-password" : "current-password";
 
     showAuthMessage("", false);
 }
 
-
 function showAuthMessage(message, success) {
-
     const element = document.getElementById("auth-message");
-
     element.textContent = message || "";
-
     element.classList.toggle("success", !!success);
 }
 
-
 function togglePassword() {
-
     const input = document.getElementById("customer-password");
-
-    input.type =
-        input.type === "password" ? "text" : "password";
+    input.type = input.type === "password" ? "text" : "password";
 }
-
 
 function setBusy(value) {
-
     const button = document.getElementById("auth-submit");
-
     button.disabled = value;
-
-    button.textContent = value
-        ? "Please wait..."
-        : (
-            authMode === "signup"
-                ? "Create Account"
-                : "Login"
-        );
+    button.textContent = value ? "Please wait..." : (authMode === "signup" ? "Create Account" : "Login");
 }
 
 
-// ==========================================
-// SAVE CUSTOMER PROFILE
-// ==========================================
-
-async function saveCustomerProfile(user, name, phone, address) {
-
-    if (!supabaseClient || !user) return;
-
-    const { error } = await supabaseClient
-        .from("customer_profiles")
-        .upsert(
-            {
-                id: user.id,
-                full_name: name || user.user_metadata?.full_name || "",
-                phone: phone || user.phone || "",
-                address: address || user.user_metadata?.address || ""
-            },
-            {
-                onConflict: "id"
-            }
-        );
-
-    if (error) {
-        console.error("Profile save error:", error.message);
-    }
-}
-
-
-// ==========================================
-// AUTHENTICATION SUBMIT
-// ==========================================
-
+// AUTH SUBMIT HANDLER (LOCALSTORAGE)
 async function handleAuthSubmit(event) {
-
     event.preventDefault();
-
-    if (!supabaseClient) {
-
-        showAuthMessage(
-            "Supabase key missing. Add your Publishable/anon key in script.js.",
-            false
-        );
-
-        return;
-    }
-
     setBusy(true);
-
     showAuthMessage("", false);
 
     try {
-
         const phone = getPhoneNumber();
-
-        const password =
-            document.getElementById("customer-password").value;
+        const password = document.getElementById("customer-password").value;
 
         if (password.length < 6) {
-            throw Error("Password must be at least 6 characters.");
+            throw Error("পাসওয়ার্ড অন্তত ৬ অক্ষরের হতে হবে।");
         }
 
-
-        // REGISTER
+        // SIGNUP
         if (authMode === "signup") {
+            const name = document.getElementById("customer-name").value.trim();
+            const address = document.getElementById("customer-address").value.trim();
 
-            const name =
-                document.getElementById("customer-name").value.trim();
+            if (!name) throw Error("দয়া করে আপনার পুরো নাম লিখুন।");
+            if (!address) throw Error("দয়া করে আপনার ডেলিভারি ঠিকানা লিখুন।");
 
-            const address =
-                document.getElementById("customer-address").value.trim();
+            const userData = { name, phone, password, address };
+            localStorage.setItem("amir_cafe_user_" + phone, JSON.stringify(userData));
+            localStorage.setItem("amir_cafe_current_user", JSON.stringify(userData));
 
-            if (!name) {
-                throw Error("Please enter your full name.");
-            }
-
-            if (!address) {
-                throw Error("Please enter your delivery address.");
-            }
-
-            const { data, error } =
-                await supabaseClient.auth.signUp({
-
-                    phone: phone,
-
-                    password: password,
-
-                    options: {
-                        data: {
-                            full_name: name,
-                            address: address
-                        }
-                    }
-
-                });
-
-            if (error) throw error;
-
-            if (!data.session) {
-
-                throw Error(
-                    "Supabase has not returned a session. In Supabase Dashboard, turn OFF Phone Confirmations to allow signup without SMS OTP."
-                );
-            }
-
-            currentUser = data.user;
-
-            await saveCustomerProfile(
-                data.user,
-                name,
-                phone,
-                address
-            );
-
+            currentUser = userData;
             updateAccountUI(name);
 
-            showAuthMessage(
-                "Account created successfully. You are now logged in.",
-                true
-            );
-
+            showAuthMessage("অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে!", true);
             setTimeout(closeAuth, 900);
-        }
-
-
+        } 
         // LOGIN
         else {
+            const savedData = localStorage.getItem("amir_cafe_user_" + phone);
 
-            const { data, error } =
-                await supabaseClient.auth.signInWithPassword({
+            if (!savedData) {
+                throw Error("এই নম্বর দিয়ে কোনো অ্যাকাউন্ট নেই! আগে 'Create Account' করুন।");
+            }
 
-                    phone: phone,
+            const userData = JSON.parse(savedData);
 
-                    password: password
+            if (userData.password !== password) {
+                throw Error("ভুল পাসওয়ার্ড!");
+            }
 
-                });
+            localStorage.setItem("amir_cafe_current_user", JSON.stringify(userData));
+            currentUser = userData;
+            updateAccountUI(userData.name);
 
-            if (error) throw error;
-
-            currentUser = data.user;
-
-            const { data: profile } =
-                await supabaseClient
-                    .from("customer_profiles")
-                    .select("full_name,phone,address")
-                    .eq("id", data.user.id)
-                    .maybeSingle();
-
-            updateAccountUI(
-                profile?.full_name ||
-                data.user.user_metadata?.full_name ||
-                "Customer"
-            );
-
-            showAuthMessage(
-                "Login successful. Welcome!",
-                true
-            );
-
+            showAuthMessage("লগইন সফল হয়েছে!", true);
             setTimeout(closeAuth, 700);
         }
 
     } catch (error) {
-
-        showAuthMessage(
-            error.message || "Something went wrong. Please try again.",
-            false
-        );
-
+        showAuthMessage(error.message || "কোথাও কোনো সমস্যা হয়েছে।", false);
     } finally {
-
         setBusy(false);
     }
 }
@@ -978,137 +678,56 @@ async function handleAuthSubmit(event) {
 // ==========================================
 
 function updateAccountUI(name) {
-
-    document.getElementById("account-label").textContent =
-        currentUser
-            ? `Welcome, ${name || "Customer"}`
-            : "Login / Register";
-
-    document.getElementById("account-button").title =
-        currentUser
-            ? "Click to log out"
-            : "Login or create account";
+    document.getElementById("account-label").textContent = currentUser ? `Welcome, ${name || "Customer"}` : "Login / Register";
+    document.getElementById("account-button").title = currentUser ? "Click to log out" : "Login or create account";
 }
 
-
-async function logout() {
-
-    if (supabaseClient) {
-
-        const { error } = await supabaseClient.auth.signOut();
-
-        if (error) {
-            return alert(error.message);
-        }
-    }
-
+function logout() {
+    localStorage.removeItem("amir_cafe_current_user");
     currentUser = null;
-
     updateAccountUI();
 }
 
 
-async function restoreUser(user) {
-
-    currentUser = user;
-
-    let name = user.user_metadata?.full_name || "Customer";
-
-    if (supabaseClient) {
-
-        const { data } = await supabaseClient
-            .from("customer_profiles")
-            .select("full_name")
-            .eq("id", user.id)
-            .maybeSingle();
-
-        if (data?.full_name) {
-            name = data.full_name;
-        }
-    }
-
-    updateAccountUI(name);
-}
-
-
 // ==========================================
-// INITIALIZE AUTHENTICATION
+// INITIALIZATION
 // ==========================================
 
-async function initAuth() {
-
-    document.getElementById("auth-form")
-        .addEventListener("submit", handleAuthSubmit);
-
-    document.getElementById("country-trigger")
-        .addEventListener("click", () => toggleCountryMenu());
-
-    document.getElementById("country-search")
-        .addEventListener("input", event =>
-            renderCountryList(event.target.value)
-        );
+function initAuth() {
+    document.getElementById("auth-form").addEventListener("submit", handleAuthSubmit);
+    document.getElementById("country-trigger").addEventListener("click", () => toggleCountryMenu());
+    document.getElementById("country-search").addEventListener("input", event => renderCountryList(event.target.value));
 
     document.addEventListener("click", event => {
-
         const box = document.querySelector(".phone-control");
-
         if (box && !box.contains(event.target)) {
             toggleCountryMenu(false);
         }
     });
 
     document.addEventListener("keydown", event => {
-
         if (event.key === "Escape") {
             toggleCountryMenu(false);
         }
     });
 
     selectCountry(selectedCountry);
-
     renderCountryList();
 
-    if (!supabaseClient) return;
-
-    const {
-        data: { session }
-    } = await supabaseClient.auth.getSession();
-
-    if (session?.user) {
-        await restoreUser(session.user);
-    }
-
-    supabaseClient.auth.onAuthStateChange(
-        (_event, session) => {
-
-            if (session?.user) {
-
-                currentUser = session.user;
-
-                updateAccountUI(
-                    session.user.user_metadata?.full_name || "Customer"
-                );
-
-            } else {
-
-                currentUser = null;
-
-                updateAccountUI();
-            }
+    // Restore existing session from localStorage
+    const activeUserJSON = localStorage.getItem("amir_cafe_current_user");
+    if (activeUserJSON) {
+        try {
+            currentUser = JSON.parse(activeUserJSON);
+            updateAccountUI(currentUser.name);
+        } catch (e) {
+            localStorage.removeItem("amir_cafe_current_user");
         }
-    );
+    }
 }
 
-
-// ==========================================
-// WEBSITE START
-// ==========================================
-
 document.addEventListener("DOMContentLoaded", () => {
-
     renderMenu();
-
     updateCartUI();
-
     initAuth();
 });
