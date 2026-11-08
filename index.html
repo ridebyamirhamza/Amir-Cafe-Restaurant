@@ -3,1515 +3,664 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amir Cafe & Restaurant - Complete Menu</title>
+    <title>Amir Cafe & Restaurant</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
     <!-- Header Section -->
     <header>
-        <div class="logo">🍔 Amir Cafe & Restaurant</div>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#menu">Menu</a>
-            <a href="#order" class="order-btn">Cart (<span id="cart-count">0</span>)</a>
-        </nav>
+        <div class="logo">
+            <img src="https://i.ibb.co/d0L3sYzZ/87499.png" alt="Amir Cafe & Restaurant Logo" style="height: 45px; width: auto; border-radius: 50%;">
+        </div>
+        <div class="cart-btn" onclick="toggleCart()">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span id="cart-count">0</span>
+        </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <h1>Delicious Food Delivered To Your Door</h1>
-        <p>Explore all your favourite dishes from our complete restaurant menu and order now!</p>
-        <a href="#menu" class="btn">View Full Menu</a>
+    <section class="hero">
+        <h2>Delicious Food Delivered To Your Door</h2>
+        <p>Explore our fresh and tasty menu items crafted just for you!</p>
     </section>
 
-    <!-- Menu Section -->
-    <section id="menu" class="menu-section">
-        <h2>Our Complete Restaurant Menu</h2>
-        
-        <!-- 1. SOUPS -->
-        <div class="category">
-            <h3>Soups</h3>
+    <!-- Menu Categories & Items -->
+    <main class="container">
+        <!-- SOUPS -->
+        <section class="category-section" id="soups">
+            <h2>Soups</h2>
             <div class="menu-grid">
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd" alt="Tomato Soup">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=500&auto=format&fit=crop&q=60" alt="Tomato Soup">
                     <div class="item-details">
-                        <h4>Tomato Soup</h4>
+                        <h3>Tomato Soup</h3>
                         <p class="price">₹130</p>
                         <button onclick="addToCart('Tomato Soup', 130)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1603105037820-a3163e36971e" alt="Manchow Soup">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1603105037880-880cd4edfb6d?w=500&auto=format&fit=crop&q=60" alt="Manchow Soup">
                     <div class="item-details">
-                        <h4>Manchow Soup</h4>
+                        <h3>Manchow Soup</h3>
                         <p class="price">₹169</p>
                         <button onclick="addToCart('Manchow Soup', 169)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1594759313091-5f111e5f8f2f" alt="Sweet Corn Soup">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=500&auto=format&fit=crop&q=60" alt="Sweet Corn Soup">
                     <div class="item-details">
-                        <h4>Sweet Corn Soup</h4>
+                        <h3>Sweet Corn Soup</h3>
                         <p class="price">₹149</p>
                         <button onclick="addToCart('Sweet Corn Soup', 149)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd" alt="Hot & Sour Soup">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500&auto=format&fit=crop&q=60" alt="Healthy Vegetables Soup">
                     <div class="item-details">
-                        <h4>Hot & Sour Soup</h4>
-                        <p class="price">₹159</p>
-                        <button onclick="addToCart('Hot & Sour Soup', 159)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c" alt="Healthy Vegetables Soup">
-                    <div class="item-details">
-                        <h4>Healthy Vegetables Soup</h4>
+                        <h3>Healthy Vegetables Soup</h3>
                         <p class="price">₹199</p>
                         <button onclick="addToCart('Healthy Vegetables Soup', 199)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999" alt="Lemon Coriander Soup">
-                    <div class="item-details">
-                        <h4>Lemon Coriander Soup</h4>
-                        <p class="price">₹179</p>
-                        <button onclick="addToCart('Lemon Coriander Soup', 179)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1594759313091-5f111e5f8f2f" alt="Chicken Hot & Sour Soup">
-                    <div class="item-details">
-                        <h4>Chicken Hot & Sour Soup</h4>
-                        <p class="price">₹199</p>
-                        <button onclick="addToCart('Chicken Hot & Sour Soup', 199)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1603105037820-a3163e36971e" alt="Chicken Manchow Soup">
-                    <div class="item-details">
-                        <h4>Chicken Manchow Soup</h4>
-                        <p class="price">₹219</p>
-                        <button onclick="addToCart('Chicken Manchow Soup', 219)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd" alt="Chicken Lemon Coriander Soup">
-                    <div class="item-details">
-                        <h4>Chicken Lemon Coriander Soup</h4>
-                        <p class="price">₹200</p>
-                        <button onclick="addToCart('Chicken Lemon Coriander Soup', 200)">Add to Cart</button>
-                    </div>
-                </div>
             </div>
-        </div>
+        </section>
 
-        <!-- 2. MUNCHIES -->
-        <div class="category">
-            <h3>Munchies</h3>
+        <!-- MUNCHIES -->
+        <section class="category-section" id="munchies">
+            <h2>Munchies</h2>
             <div class="menu-grid">
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5" alt="Masala Papad">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=500&auto=format&fit=crop&q=60" alt="Masala Papad">
                     <div class="item-details">
-                        <h4>Masala Papad</h4>
+                        <h3>Masala Papad</h3>
                         <p class="price">₹140</p>
                         <button onclick="addToCart('Masala Papad', 140)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877" alt="French Fries">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=500&auto=format&fit=crop&q=60" alt="French Fries">
                     <div class="item-details">
-                        <h4>French Fries</h4>
+                        <h3>French Fries</h3>
                         <p class="price">₹149</p>
                         <button onclick="addToCart('French Fries', 149)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1639024471283-03518883512d" alt="Onion Rings">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1639024471283-03518883512d?w=500&auto=format&fit=crop&q=60" alt="Onion Rings">
                     <div class="item-details">
-                        <h4>Onion Rings</h4>
+                        <h3>Onion Rings</h3>
                         <p class="price">₹169</p>
                         <button onclick="addToCart('Onion Rings', 169)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1582169505501-52309f359556" alt="Cheese Nachos">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?w=500&auto=format&fit=crop&q=60" alt="Cheese Nachos">
                     <div class="item-details">
-                        <h4>Cheese Nachos</h4>
+                        <h3>Cheese Nachos</h3>
                         <p class="price">₹179</p>
                         <button onclick="addToCart('Cheese Nachos', 179)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5" alt="Peanut Masala">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=500&auto=format&fit=crop&q=60" alt="Peanut Masala">
                     <div class="item-details">
-                        <h4>Peanut Masala</h4>
+                        <h3>Peanut Masala</h3>
                         <p class="price">₹169</p>
                         <button onclick="addToCart('Peanut Masala', 169)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e" alt="Grinch Spl. Crispy Corn">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=500&auto=format&fit=crop&q=60" alt="Crispy Corn">
                     <div class="item-details">
-                        <h4>Grinch Spl. Crispy Corn</h4>
+                        <h3>Crispy Corn</h3>
                         <p class="price">₹199</p>
-                        <button onclick="addToCart('Grinch Spl. Crispy Corn', 199)">Add to Cart</button>
+                        <button onclick="addToCart('Crispy Corn', 199)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877" alt="Peri Peri Fries">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?w=500&auto=format&fit=crop&q=60" alt="Peri Peri Fries">
                     <div class="item-details">
-                        <h4>Peri Peri Fries</h4>
+                        <h3>Peri Peri Fries</h3>
                         <p class="price">₹179</p>
                         <button onclick="addToCart('Peri Peri Fries', 179)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877" alt="Creamy Fries">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1585109649139-366815a0d713?w=500&auto=format&fit=crop&q=60" alt="Creamy Fries">
                     <div class="item-details">
-                        <h4>Creamy Fries</h4>
+                        <h3>Creamy Fries</h3>
                         <p class="price">₹169</p>
                         <button onclick="addToCart('Creamy Fries', 169)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff" alt="Bread Toast">
-                    <div class="item-details">
-                        <h4>Bread Toast</h4>
-                        <p class="price">₹99</p>
-                        <button onclick="addToCart('Bread Toast', 99)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47" alt="Ande Ka Funda">
-                    <div class="item-details">
-                        <h4>Ande Ka Funda</h4>
-                        <p class="price">₹140</p>
-                        <button onclick="addToCart('Ande Ka Funda', 140)">Add to Cart</button>
-                    </div>
-                </div>
             </div>
-        </div>
+        </section>
 
-        <!-- 3. BURGERS & NON-VEG BURGERS -->
-        <div class="category">
-            <h3>Burgers & Non-Veg Burgers</h3>
+        <!-- BURGER -->
+        <section class="category-section" id="burger">
+            <h2>Burger</h2>
             <div class="menu-grid">
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd" alt="Allo Tikki Burger">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&auto=format&fit=crop&q=60" alt="Allo Tikki Burger">
                     <div class="item-details">
-                        <h4>Allo Tikki Burger</h4>
+                        <h3>Allo Tikki Burger</h3>
                         <p class="price">₹69</p>
                         <button onclick="addToCart('Allo Tikki Burger', 69)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349" alt="Crispy Veg Burger">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=500&auto=format&fit=crop&q=60" alt="Crispy Veg Burger">
                     <div class="item-details">
-                        <h4>Crispy Veg Burger</h4>
+                        <h3>Crispy Veg Burger</h3>
                         <p class="price">₹89</p>
                         <button onclick="addToCart('Crispy Veg Burger', 89)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349" alt="Paneer Burger">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=500&auto=format&fit=crop&q=60" alt="Paneer Burger">
                     <div class="item-details">
-                        <h4>Paneer Burger</h4>
+                        <h3>Paneer Burger</h3>
                         <p class="price">₹120</p>
                         <button onclick="addToCart('Paneer Burger', 120)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd" alt="Nacho Cheese Burger">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=500&auto=format&fit=crop&q=60" alt="Nacho Cheese Burger">
                     <div class="item-details">
-                        <h4>Nacho Cheese Burger</h4>
+                        <h3>Nacho Cheese Burger</h3>
                         <p class="price">₹110</p>
                         <button onclick="addToCart('Nacho Cheese Burger', 110)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349" alt="Paneer Jalapeno Burger">
-                    <div class="item-details">
-                        <h4>Paneer Jalapeno Burger</h4>
-                        <p class="price">₹130</p>
-                        <button onclick="addToCart('Paneer Jalapeno Burger', 130)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd" alt="Allo Tikki Stack Burger">
-                    <div class="item-details">
-                        <h4>Allo Tikki Stack Burger</h4>
-                        <p class="price">₹150</p>
-                        <button onclick="addToCart('Allo Tikki Stack Burger', 150)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349" alt="Paneer Stack Burger">
-                    <div class="item-details">
-                        <h4>Paneer Stack Burger</h4>
-                        <p class="price">₹190</p>
-                        <button onclick="addToCart('Paneer Stack Burger', 190)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349" alt="Egg Burger">
-                    <div class="item-details">
-                        <h4>Egg Burger</h4>
-                        <p class="price">₹79</p>
-                        <button onclick="addToCart('Egg Burger', 79)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90" alt="Chicken Burger">
-                    <div class="item-details">
-                        <h4>Chicken Burger</h4>
-                        <p class="price">₹140</p>
-                        <button onclick="addToCart('Chicken Burger', 140)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90" alt="Chicken Nacho Burger">
-                    <div class="item-details">
-                        <h4>Chicken Nacho Burger</h4>
-                        <p class="price">₹150</p>
-                        <button onclick="addToCart('Chicken Nacho Burger', 150)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90" alt="Egg+Chicken Burger">
-                    <div class="item-details">
-                        <h4>Egg+Chicken Burger</h4>
-                        <p class="price">₹169</p>
-                        <button onclick="addToCart('Egg+Chicken Burger', 169)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90" alt="Tandoori Grill Burger">
-                    <div class="item-details">
-                        <h4>Tandoori Grill Burger</h4>
-                        <p class="price">₹160</p>
-                        <button onclick="addToCart('Tandoori Grill Burger', 160)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90" alt="Chicken Fillet Burger">
-                    <div class="item-details">
-                        <h4>Chicken Fillet Burger</h4>
-                        <p class="price">₹190</p>
-                        <button onclick="addToCart('Chicken Fillet Burger', 190)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90" alt="Tandoori Grill Stack Burger">
-                    <div class="item-details">
-                        <h4>Tandoori Grill Stack Burger</h4>
-                        <p class="price">₹200</p>
-                        <button onclick="addToCart('Tandoori Grill Stack Burger', 200)">Add to Cart</button>
-                    </div>
-                </div>
             </div>
-        </div>
+        </section>
 
-        <!-- 4. GARLIC BREADS -->
-        <div class="category">
-            <h3>Garlic Breads</h3>
+        <!-- SANDWICH -->
+        <section class="category-section" id="sandwich">
+            <h2>Sandwich</h2>
             <div class="menu-grid">
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1619531003657-3406a3782167" alt="Garlic Bread">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=500&auto=format&fit=crop&q=60" alt="Corn Fresh Sandwich">
                     <div class="item-details">
-                        <h4>Garlic Bread</h4>
-                        <p class="price">₹139</p>
-                        <button onclick="addToCart('Garlic Bread', 139)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1619531003657-3406a3782167" alt="Loaded Garlic Bread">
-                    <div class="item-details">
-                        <h4>Loaded Garlic Bread</h4>
-                        <p class="price">₹160</p>
-                        <button onclick="addToCart('Loaded Garlic Bread', 160)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1619531003657-3406a3782167" alt="Paneer Garlic Bread">
-                    <div class="item-details">
-                        <h4>Paneer Garlic Bread</h4>
-                        <p class="price">₹190</p>
-                        <button onclick="addToCart('Paneer Garlic Bread', 190)">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 5. SANDWICH & WRAP -->
-        <div class="category">
-            <h3>Sandwich & Wrap</h3>
-            <div class="menu-grid">
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af" alt="Corn Fresh Sandwich">
-                    <div class="item-details">
-                        <h4>Corn Fresh Sandwich</h4>
+                        <h3>Corn Fresh Sandwich</h3>
                         <p class="price">₹130</p>
                         <button onclick="addToCart('Corn Fresh Sandwich', 130)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af" alt="Veg Grilled Sandwich">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1509722747041-616f39b57569?w=500&auto=format&fit=crop&q=60" alt="Veg Grilled Sandwich">
                     <div class="item-details">
-                        <h4>Veg Grilled Sandwich</h4>
+                        <h3>Veg Grilled Sandwich</h3>
                         <p class="price">₹150</p>
                         <button onclick="addToCart('Veg Grilled Sandwich', 150)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af" alt="Grinch Spl. Nababi Sandwich">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1554471062-e5dd4695b38d?w=500&auto=format&fit=crop&q=60" alt="Veg Double Decker Sandwich">
                     <div class="item-details">
-                        <h4>Grinch Spl. Nababi Sandwich</h4>
-                        <p class="price">₹180</p>
-                        <button onclick="addToCart('Grinch Spl. Nababi Sandwich', 180)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af" alt="Veg Double Decker Sandwich">
-                    <div class="item-details">
-                        <h4>Veg Double Decker Sandwich</h4>
+                        <h3>Veg Double Decker Sandwich</h3>
                         <p class="price">₹219</p>
                         <button onclick="addToCart('Veg Double Decker Sandwich', 219)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af" alt="Egg Sandwich">
+            </div>
+        </section>
+
+        <!-- WRAP -->
+        <section class="category-section" id="wrap">
+            <h2>Wrap</h2>
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?w=500&auto=format&fit=crop&q=60" alt="Fries Wrap">
                     <div class="item-details">
-                        <h4>Egg Sandwich</h4>
-                        <p class="price">₹190</p>
-                        <button onclick="addToCart('Egg Sandwich', 190)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af" alt="Chicken Sandwich">
-                    <div class="item-details">
-                        <h4>Chicken Sandwich</h4>
-                        <p class="price">₹240</p>
-                        <button onclick="addToCart('Chicken Sandwich', 240)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46" alt="Fries Wrap">
-                    <div class="item-details">
-                        <h4>Fries Wrap</h4>
+                        <h3>Fries Wrap</h3>
                         <p class="price">₹150</p>
                         <button onclick="addToCart('Fries Wrap', 150)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46" alt="Nacho Wrap">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=500&auto=format&fit=crop&q=60" alt="Nacho Wrap">
                     <div class="item-details">
-                        <h4>Nacho Wrap</h4>
+                        <h3>Nacho Wrap</h3>
                         <p class="price">₹150</p>
                         <button onclick="addToCart('Nacho Wrap', 150)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46" alt="Veggies Wrap">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=500&auto=format&fit=crop&q=60" alt="Veggies Wrap">
                     <div class="item-details">
-                        <h4>Veggies Wrap</h4>
+                        <h3>Veggies Wrap</h3>
                         <p class="price">₹140</p>
                         <button onclick="addToCart('Veggies Wrap', 140)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46" alt="Paneer Wrap">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=500&auto=format&fit=crop&q=60" alt="Paneer Wrap">
                     <div class="item-details">
-                        <h4>Paneer Wrap</h4>
+                        <h3>Paneer Wrap</h3>
                         <p class="price">₹150</p>
                         <button onclick="addToCart('Paneer Wrap', 150)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46" alt="Chicken Wrap">
-                    <div class="item-details">
-                        <h4>Chicken Wrap</h4>
-                        <p class="price">₹180</p>
-                        <button onclick="addToCart('Chicken Wrap', 180)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46" alt="Double Egg With Chicken">
-                    <div class="item-details">
-                        <h4>Double Egg With Chicken</h4>
-                        <p class="price">₹200</p>
-                        <button onclick="addToCart('Double Egg With Chicken', 200)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46" alt="Nacho Paneer Wrap">
-                    <div class="item-details">
-                        <h4>Nacho Paneer Wrap</h4>
-                        <p class="price">₹170</p>
-                        <button onclick="addToCart('Nacho Paneer Wrap', 170)">Add to Cart</button>
-                    </div>
-                </div>
             </div>
-        </div>
+        </section>
 
-        <!-- 6. STARTERS (Veg & Non-Veg) -->
-        <div class="category">
-            <h3>Starters</h3>
+        <!-- STARTER -->
+        <section class="category-section" id="starter">
+            <h2>Starter</h2>
             <div class="menu-grid">
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950" alt="Veg Spring Roll">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1541658016709-82535e94bc69?w=500&auto=format&fit=crop&q=60" alt="Veg Spring Roll">
                     <div class="item-details">
-                        <h4>Veg Spring Roll</h4>
+                        <h3>Veg Spring Roll</h3>
                         <p class="price">₹149</p>
                         <button onclick="addToCart('Veg Spring Roll', 149)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445" alt="Honey Chilli Cauliflower">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1525755662778-989d0524087e?w=500&auto=format&fit=crop&q=60" alt="Honey Chilli Cauliflower">
                     <div class="item-details">
-                        <h4>Honey Chilli Cauliflower</h4>
+                        <h3>Honey Chilli Cauliflower</h3>
                         <p class="price">₹210</p>
                         <button onclick="addToCart('Honey Chilli Cauliflower', 210)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999" alt="Chilli Mushroom">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500&auto=format&fit=crop&q=60" alt="Chilli Mushroom">
                     <div class="item-details">
-                        <h4>Chilli Mushroom</h4>
+                        <h3>Chilli Mushroom</h3>
                         <p class="price">₹230</p>
                         <button onclick="addToCart('Chilli Mushroom', 230)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47" alt="Veg Salt N Pepper">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1625813506062-0aeb1d7a094b?w=500&auto=format&fit=crop&q=60" alt="Hara Bhara Kabab">
                     <div class="item-details">
-                        <h4>Veg Salt N Pepper</h4>
-                        <p class="price">₹240</p>
-                        <button onclick="addToCart('Veg Salt N Pepper', 240)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46" alt="Hara Bhara Kabab">
-                    <div class="item-details">
-                        <h4>Hara Bhara Kabab</h4>
+                        <h3>Hara Bhara Kabab</h3>
                         <p class="price">₹300</p>
                         <button onclick="addToCart('Hara Bhara Kabab', 300)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999" alt="Tandoori Mushroom">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=500&auto=format&fit=crop&q=60" alt="Tandoori Mushroom">
                     <div class="item-details">
-                        <h4>Tandoori Mushroom</h4>
+                        <h3>Tandoori Mushroom</h3>
                         <p class="price">₹300</p>
                         <button onclick="addToCart('Tandoori Mushroom', 300)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999" alt="Tandoori Soya Chaap">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500&auto=format&fit=crop&q=60" alt="Tandoori Soya Chaap">
                     <div class="item-details">
-                        <h4>Tandoori Soya Chaap</h4>
+                        <h3>Tandoori Soya Chaap</h3>
                         <p class="price">₹220</p>
                         <button onclick="addToCart('Tandoori Soya Chaap', 220)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999" alt="Malai Soya Chaap">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=500&auto=format&fit=crop&q=60" alt="Malai Soya Chaap">
                     <div class="item-details">
-                        <h4>Malai Soya Chaap</h4>
+                        <h3>Malai Soya Chaap</h3>
                         <p class="price">₹249</p>
                         <button onclick="addToCart('Malai Soya Chaap', 249)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999" alt="Veg Seekh Kabab">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=500&auto=format&fit=crop&q=60" alt="Veg Manchurian Dry">
                     <div class="item-details">
-                        <h4>Veg Seekh Kabab</h4>
-                        <p class="price">₹280</p>
-                        <button onclick="addToCart('Veg Seekh Kabab', 280)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999" alt="Veg Manchurian Dry">
-                    <div class="item-details">
-                        <h4>Veg Manchurian Dry</h4>
+                        <h3>Veg Manchurian Dry</h3>
                         <p class="price">₹220</p>
                         <button onclick="addToCart('Veg Manchurian Dry', 220)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999" alt="Tandoori Najakhat Aloo">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1526318896980-cf78c088247c?w=500&auto=format&fit=crop&q=60" alt="Honey Chilli Potato">
                     <div class="item-details">
-                        <h4>Tandoori Najakhat Aloo</h4>
-                        <p class="price">₹299</p>
-                        <button onclick="addToCart('Tandoori Najakhat Aloo', 299)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999" alt="Duplex Mushroom">
-                    <div class="item-details">
-                        <h4>Duplex Mushroom</h4>
-                        <p class="price">₹349</p>
-                        <button onclick="addToCart('Duplex Mushroom', 349)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47" alt="Chilli Corn Paneer">
-                    <div class="item-details">
-                        <h4>Chilli Corn Paneer</h4>
-                        <p class="price">₹259</p>
-                        <button onclick="addToCart('Chilli Corn Paneer', 259)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47" alt="Tandoori Paneer Tikka">
-                    <div class="item-details">
-                        <h4>Tandoori Paneer Tikka</h4>
-                        <p class="price">₹310</p>
-                        <button onclick="addToCart('Tandoori Paneer Tikka', 310)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47" alt="Achari Paneer Tikka">
-                    <div class="item-details">
-                        <h4>Achari Paneer Tikka</h4>
-                        <p class="price">₹330</p>
-                        <button onclick="addToCart('Achari Paneer Tikka', 330)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47" alt="Malai Paneer Tikka">
-                    <div class="item-details">
-                        <h4>Malai Paneer Tikka</h4>
-                        <p class="price">₹350</p>
-                        <button onclick="addToCart('Malai Paneer Tikka', 350)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47" alt="Dahi Ke Kabab">
-                    <div class="item-details">
-                        <h4>Dahi Ke Kabab</h4>
-                        <p class="price">₹329</p>
-                        <button onclick="addToCart('Dahi Ke Kabab', 329)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47" alt="Cheese Chilli">
-                    <div class="item-details">
-                        <h4>Cheese Chilli</h4>
-                        <p class="price">₹299</p>
-                        <button onclick="addToCart('Cheese Chilli', 299)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47" alt="Honey Chilli Potato">
-                    <div class="item-details">
-                        <h4>Honey Chilli Potato</h4>
+                        <h3>Honey Chilli Potato</h3>
                         <p class="price">₹200</p>
                         <button onclick="addToCart('Honey Chilli Potato', 200)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47" alt="Multani Paneer Tikka">
-                    <div class="item-details">
-                        <h4>Multani Paneer Tikka</h4>
-                        <p class="price">₹399</p>
-                        <button onclick="addToCart('Multani Paneer Tikka', 399)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47" alt="Dahi Ke Sholey">
-                    <div class="item-details">
-                        <h4>Dahi Ke Sholey</h4>
-                        <p class="price">₹349</p>
-                        <button onclick="addToCart('Dahi Ke Sholey', 349)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47" alt="Makhmali Paneer Tikka">
-                    <div class="item-details">
-                        <h4>Makhmali Paneer Tikka</h4>
-                        <p class="price">₹349</p>
-                        <button onclick="addToCart('Makhmali Paneer Tikka', 349)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47" alt="Malai Seekh Kabab">
-                    <div class="item-details">
-                        <h4>Malai Seekh Kabab</h4>
-                        <p class="price">₹399</p>
-                        <button onclick="addToCart('Malai Seekh Kabab', 399)">Add to Cart</button>
-                    </div>
-                </div>
-                <!-- Non-Veg Starters -->
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46" alt="Gilafi Chicken Seekh">
-                    <div class="item-details">
-                        <h4>Gilafi Chicken Seekh</h4>
-                        <p class="price">₹489</p>
-                        <button onclick="addToCart('Gilafi Chicken Seekh', 489)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46" alt="Chicken Tikka Lahsooni">
-                    <div class="item-details">
-                        <h4>Chicken Tikka Lahsooni</h4>
-                        <p class="price">₹469</p>
-                        <button onclick="addToCart('Chicken Tikka Lahsooni', 469)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46" alt="Mongolian Chicken">
-                    <div class="item-details">
-                        <h4>Mongolian Chicken</h4>
-                        <p class="price">₹449</p>
-                        <button onclick="addToCart('Mongolian Chicken', 449)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46" alt="Chilli Chicken">
-                    <div class="item-details">
-                        <h4>Chilli Chicken</h4>
-                        <p class="price">₹399</p>
-                        <button onclick="addToCart('Chilli Chicken', 399)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46" alt="Kung Pao Chicken">
-                    <div class="item-details">
-                        <h4>Kung Pao Chicken</h4>
-                        <p class="price">₹499</p>
-                        <button onclick="addToCart('Kung Pao Chicken', 499)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46" alt="Multani Chicken Tikka">
-                    <div class="item-details">
-                        <h4>Multani Chicken Tikka</h4>
-                        <p class="price">₹499</p>
-                        <button onclick="addToCart('Multani Chicken Tikka', 499)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46" alt="Murgh Angara Tikka">
-                    <div class="item-details">
-                        <h4>Murgh Angara Tikka</h4>
-                        <p class="price">₹449</p>
-                        <button onclick="addToCart('Murgh Angara Tikka', 449)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46" alt="Lemon Chicken With Gravy">
-                    <div class="item-details">
-                        <h4>Lemon Chicken With Gravy</h4>
-                        <p class="price">₹549</p>
-                        <button onclick="addToCart('Lemon Chicken With Gravy', 549)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1527477396000-e27163b481c2" alt="Chicken Wings">
-                    <div class="item-details">
-                        <h4>Chicken Wings</h4>
-                        <p class="price">₹499</p>
-                        <button onclick="addToCart('Chicken Wings', 499)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46" alt="Chicken Pop Corn">
-                    <div class="item-details">
-                        <h4>Chicken Pop Corn</h4>
-                        <p class="price">₹450</p>
-                        <button onclick="addToCart('Chicken Pop Corn', 450)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46" alt="Tandoori Leg 3 pc">
-                    <div class="item-details">
-                        <h4>Tandoori Leg 3 pc</h4>
-                        <p class="price">₹369</p>
-                        <button onclick="addToCart('Tandoori Leg 3 pc', 369)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46" alt="Tangri Kbab">
-                    <div class="item-details">
-                        <h4>Tangri Kbab</h4>
-                        <p class="price">₹449</p>
-                        <button onclick="addToCart('Tangri Kbab', 449)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46" alt="Afghani Chicken Tikka">
-                    <div class="item-details">
-                        <h4>Afghani Chicken Tikka</h4>
-                        <p class="price">₹469</p>
-                        <button onclick="addToCart('Afghani Chicken Tikka', 469)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46" alt="Achari Murgh Tikka">
-                    <div class="item-details">
-                        <h4>Achari Murgh Tikka</h4>
-                        <p class="price">₹459</p>
-                        <button onclick="addToCart('Achari Murgh Tikka', 459)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46" alt="Murgh Malai Tikka">
-                    <div class="item-details">
-                        <h4>Murgh Malai Tikka</h4>
-                        <p class="price">₹449</p>
-                        <button onclick="addToCart('Murgh Malai Tikka', 449)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46" alt="Chicken Lollipop">
-                    <div class="item-details">
-                        <h4>Chicken Lollipop</h4>
-                        <p class="price">₹549</p>
-                        <button onclick="addToCart('Chicken Lollipop', 549)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46" alt="Tandoori Chicken">
-                    <div class="item-details">
-                        <h4>Tandoori Chicken</h4>
-                        <p class="price">₹549</p>
-                        <button onclick="addToCart('Tandoori Chicken', 549)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46" alt="Chicken Leg (KFC) Per Piece">
-                    <div class="item-details">
-                        <h4>Chicken Leg (KFC) Per Piece</h4>
-                        <p class="price">₹99</p>
-                        <button onclick="addToCart('Chicken Leg (KFC) Per Piece', 99)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46" alt="Chicken Strips">
-                    <div class="item-details">
-                        <h4>Chicken Strips</h4>
-                        <p class="price">₹349</p>
-                        <button onclick="addToCart('Chicken Strips', 349)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46" alt="Chicken Tikka">
-                    <div class="item-details">
-                        <h4>Chicken Tikka</h4>
-                        <p class="price">₹440</p>
-                        <button onclick="addToCart('Chicken Tikka', 440)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46" alt="Lemon Chicken Chinese Style">
-                    <div class="item-details">
-                        <h4>Lemon Chicken Chinese Style</h4>
-                        <p class="price">₹400</p>
-                        <button onclick="addToCart('Lemon Chicken Chinese Style', 400)">Add to Cart</button>
-                    </div>
-                </div>
             </div>
-        </div>
+        </section>
 
-        <!-- 7. PLATTERS & SIZZLERS -->
-        <div class="category">
-            <h3>Platters & Sizzlers</h3>
+        <!-- PASTA -->
+        <section class="category-section" id="pasta">
+            <h2>Pasta</h2>
             <div class="menu-grid">
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947" alt="Veg Tikka Platter">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1621996346565-e3d5d6281298?w=500&auto=format&fit=crop&q=60" alt="White Sauce Pasta">
                     <div class="item-details">
-                        <h4>Veg Tikka Platter</h4>
-                        <p class="price">₹599</p>
-                        <button onclick="addToCart('Veg Tikka Platter', 599)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1" alt="Non Veg Tikka Platter">
-                    <div class="item-details">
-                        <h4>Non Veg Tikka Platter</h4>
-                        <p class="price">₹999</p>
-                        <button onclick="addToCart('Non Veg Tikka Platter', 999)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5" alt="Veg Sizzler">
-                    <div class="item-details">
-                        <h4>Veg Sizzler</h4>
-                        <p class="price">₹399</p>
-                        <button onclick="addToCart('Veg Sizzler', 399)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5" alt="Veg Chinese Sizzler">
-                    <div class="item-details">
-                        <h4>Veg Chinese Sizzler</h4>
-                        <p class="price">₹469</p>
-                        <button onclick="addToCart('Veg Chinese Sizzler', 469)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5" alt="Chicken Steak Sizzler">
-                    <div class="item-details">
-                        <h4>Chicken Steak Sizzler</h4>
-                        <p class="price">₹549</p>
-                        <button onclick="addToCart('Chicken Steak Sizzler', 549)">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 8. PASTA & CRISPY BREADS -->
-        <div class="category">
-            <h3>Pasta & Crispy Breads</h3>
-            <div class="menu-grid">
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1621996346565-e3d5d6281298" alt="Alfredo Pasta">
-                    <div class="item-details">
-                        <h4>Alfredo Pasta</h4>
-                        <p class="price">₹249</p>
-                        <button onclick="addToCart('Alfredo Pasta', 249)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1621996346565-e3d5d6281298" alt="Grinch Spl. Pasta">
-                    <div class="item-details">
-                        <h4>Grinch Spl. Pasta</h4>
-                        <p class="price">₹269</p>
-                        <button onclick="addToCart('Grinch Spl. Pasta', 269)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1621996346565-e3d5d6281298" alt="Sweet Corn Pasta Mushroom">
-                    <div class="item-details">
-                        <h4>Sweet Corn Pasta Mushroom</h4>
-                        <p class="price">₹199</p>
-                        <button onclick="addToCart('Sweet Corn Pasta Mushroom', 199)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1621996346565-e3d5d6281298" alt="Mushroom Olive Pasta">
-                    <div class="item-details">
-                        <h4>Mushroom Olive Pasta</h4>
-                        <p class="price">₹210</p>
-                        <button onclick="addToCart('Mushroom Olive Pasta', 210)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1621996346565-e3d5d6281298" alt="Red Sauce Pasta">
-                    <div class="item-details">
-                        <h4>Red Sauce Pasta</h4>
-                        <p class="price">₹199</p>
-                        <button onclick="addToCart('Red Sauce Pasta', 199)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1621996346565-e3d5d6281298" alt="White Sauce Pasta">
-                    <div class="item-details">
-                        <h4>White Sauce Pasta</h4>
+                        <h3>White Sauce Pasta</h3>
                         <p class="price">₹189</p>
                         <button onclick="addToCart('White Sauce Pasta', 189)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5" alt="Chilli Cheese Toast">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=500&auto=format&fit=crop&q=60" alt="Red Sauce Pasta">
                     <div class="item-details">
-                        <h4>Chilli Cheese Toast</h4>
-                        <p class="price">₹139</p>
-                        <button onclick="addToCart('Chilli Cheese Toast', 139)">Add to Cart</button>
+                        <h3>Red Sauce Pasta</h3>
+                        <p class="price">₹199</p>
+                        <button onclick="addToCart('Red Sauce Pasta', 199)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5" alt="Tomato Basil Bruschetta">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1608897013039-887f21d8c804?w=500&auto=format&fit=crop&q=60" alt="Alfredo Pasta">
                     <div class="item-details">
-                        <h4>Tomato Basil Bruschetta</h4>
-                        <p class="price">₹220</p>
-                        <button onclick="addToCart('Tomato Basil Bruschetta', 220)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5" alt="Chicken Bruschetta">
-                    <div class="item-details">
-                        <h4>Chicken Bruschetta</h4>
-                        <p class="price">₹259</p>
-                        <button onclick="addToCart('Chicken Bruschetta', 259)">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 9. PIZZA -->
-        <div class="category">
-            <h3>Pizzas (Medium / Large)</h3>
-            <div class="menu-grid">
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591" alt="Classic Margherita Pizza">
-                    <div class="item-details">
-                        <h4>Classic Margherita Pizza (Med: ₹200 / Large: ₹270)</h4>
-                        <p class="price">₹200 - ₹270</p>
-                        <button onclick="addToCart('Classic Margherita Pizza', 200)">Add Medium (₹200)</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591" alt="Double Cheese Mag Pizza">
-                    <div class="item-details">
-                        <h4>Double Cheese Mag Pizza (Med: ₹300 / Large: ₹400)</h4>
-                        <p class="price">₹300 - ₹400</p>
-                        <button onclick="addToCart('Double Cheese Mag Pizza', 300)">Add Medium (₹300)</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38" alt="Spicy Delight Pizza">
-                    <div class="item-details">
-                        <h4>Spicy Delight Pizza (Med: ₹320 / Large: ₹450)</h4>
-                        <p class="price">₹320 - ₹450</p>
-                        <button onclick="addToCart('Spicy Delight Pizza', 320)">Add Medium (₹320)</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38" alt="Perry Paneer Pizza">
-                    <div class="item-details">
-                        <h4>Perry Paneer Pizza (Med: ₹340 / Large: ₹400)</h4>
-                        <p class="price">₹340 - ₹400</p>
-                        <button onclick="addToCart('Perry Paneer Pizza', 340)">Add Medium (₹340)</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38" alt="Farmer Delight Pizza">
-                    <div class="item-details">
-                        <h4>Farmer Delight Pizza (Med: ₹350 / Large: ₹420)</h4>
-                        <p class="price">₹350 - ₹420</p>
-                        <button onclick="addToCart('Farmer Delight Pizza', 350)">Add Medium (₹350)</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38" alt="Grinch Farmhouse Pizza">
-                    <div class="item-details">
-                        <h4>Grinch Farmhouse Pizza (Med: ₹350 / Large: ₹500)</h4>
-                        <p class="price">₹350 - ₹500</p>
-                        <button onclick="addToCart('Grinch Farmhouse Pizza', 350)">Add Medium (₹350)</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e" alt="Chicken Pizza">
-                    <div class="item-details">
-                        <h4>Chicken Pizza (Med: ₹280 / Large: ₹400)</h4>
-                        <p class="price">₹280 - ₹400</p>
-                        <button onclick="addToCart('Chicken Pizza', 280)">Add Medium (₹280)</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e" alt="Chicken Tikka Pizza">
-                    <div class="item-details">
-                        <h4>Chicken Tikka Pizza (Med: ₹300 / Large: ₹500)</h4>
-                        <p class="price">₹300 - ₹500</p>
-                        <button onclick="addToCart('Chicken Tikka Pizza', 300)">Add Medium (₹300)</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e" alt="Chicken Supreme Pizza">
-                    <div class="item-details">
-                        <h4>Chicken Supreme Pizza (Med: ₹320 / Large: ₹500)</h4>
-                        <p class="price">₹320 - ₹500</p>
-                        <button onclick="addToCart('Chicken Supreme Pizza', 320)">Add Medium (₹320)</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e" alt="Country Special Pizza">
-                    <div class="item-details">
-                        <h4>Country Special Pizza (Med: ₹400 / Large: ₹700)</h4>
-                        <p class="price">₹400 - ₹700</p>
-                        <button onclick="addToCart('Country Special Pizza', 400)">Add Medium (₹400)</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e" alt="Makhni Panner Pizza">
-                    <div class="item-details">
-                        <h4>Makhni Panner Pizza (Med: ₹320 / Large: ₹450)</h4>
-                        <p class="price">₹320 - ₹450</p>
-                        <button onclick="addToCart('Makhni Panner Pizza', 320)">Add Medium (₹320)</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e" alt="Veggie Loader Pizza">
-                    <div class="item-details">
-                        <h4>Veggie Loader Pizza (Med: ₹300 / Large: ₹399)</h4>
-                        <p class="price">₹300 - ₹399</p>
-                        <button onclick="addToCart('Veggie Loader Pizza', 300)">Add Medium (₹300)</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 10. MAIN COURSE, RAITA & NOODLES -->
-        <div class="category">
-            <h3>Main Course, Raita & Noodles</h3>
-            <div class="menu-grid">
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe" alt="Yellow Dal">
-                    <div class="item-details">
-                        <h4>Yellow Dal</h4>
-                        <p class="price">₹220</p>
-                        <button onclick="addToCart('Yellow Dal', 220)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe" alt="Tadka Lasooni Dal">
-                    <div class="item-details">
-                        <h4>Tadka Lasooni Dal</h4>
-                        <p class="price">₹299</p>
-                        <button onclick="addToCart('Tadka Lasooni Dal', 299)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d" alt="Dal Makhani">
-                    <div class="item-details">
-                        <h4>Dal Makhani</h4>
-                        <p class="price">₹240</p>
-                        <button onclick="addToCart('Dal Makhani', 240)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe" alt="Punjabi Chole">
-                    <div class="item-details">
-                        <h4>Punjabi Chole</h4>
-                        <p class="price">₹299</p>
-                        <button onclick="addToCart('Punjabi Chole', 299)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999" alt="Mix Veg">
-                    <div class="item-details">
-                        <h4>Mix Veg</h4>
+                        <h3>Alfredo Pasta</h3>
                         <p class="price">₹249</p>
-                        <button onclick="addToCart('Mix Veg', 249)">Add to Cart</button>
+                        <button onclick="addToCart('Alfredo Pasta', 249)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999" alt="Veg Jalfrezi Paneer">
+            </div>
+        </section>
+
+        <!-- PIZZA (VEG) -->
+        <section class="category-section" id="pizza">
+            <h2>Pizza (Veg) <span style="font-size: 0.8rem; color: #666;">(Medium / Large)</span></h2>
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=500&auto=format&fit=crop&q=60" alt="Classic Margherita">
                     <div class="item-details">
-                        <h4>Veg Jalfrezi Paneer</h4>
-                        <p class="price">₹299</p>
-                        <button onclick="addToCart('Veg Jalfrezi Paneer', 299)">Add to Cart</button>
+                        <h3>Classic Margherita</h3>
+                        <p class="price">₹200 / ₹270</p>
+                        <button onclick="addToCart('Classic Margherita (Med)', 200)">Add Med (₹200)</button>
+                        <button onclick="addToCart('Classic Margherita (Large)', 270)" style="margin-top:5px; background:#e67e22;">Add Large (₹270)</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47" alt="Kadhai Paneer">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&auto=format&fit=crop&q=60" alt="Double Cheese Mag">
                     <div class="item-details">
-                        <h4>Kadhai Paneer</h4>
-                        <p class="price">₹329</p>
-                        <button onclick="addToCart('Kadhai Paneer', 329)">Add to Cart</button>
+                        <h3>Double Cheese Mag</h3>
+                        <p class="price">₹300 / ₹400</p>
+                        <button onclick="addToCart('Double Cheese Mag (Med)', 300)">Add Med (₹300)</button>
+                        <button onclick="addToCart('Double Cheese Mag (Large)', 400)" style="margin-top:5px; background:#e67e22;">Add Large (₹400)</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47" alt="Paneer Khurchan">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&auto=format&fit=crop&q=60" alt="Spicy Delight">
                     <div class="item-details">
-                        <h4>Paneer Khurchan</h4>
-                        <p class="price">₹300</p>
-                        <button onclick="addToCart('Paneer Khurchan', 300)">Add to Cart</button>
+                        <h3>Spicy Delight</h3>
+                        <p class="price">₹320 / ₹450</p>
+                        <button onclick="addToCart('Spicy Delight (Med)', 320)">Add Med (₹320)</button>
+                        <button onclick="addToCart('Spicy Delight (Large)', 450)" style="margin-top:5px; background:#e67e22;">Add Large (₹450)</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47" alt="Paneer Bhurji">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1595750017130-9b3438e3e414?w=500&auto=format&fit=crop&q=60" alt="Perry Paneer">
                     <div class="item-details">
-                        <h4>Paneer Bhurji</h4>
-                        <p class="price">₹299</p>
-                        <button onclick="addToCart('Paneer Bhurji', 299)">Add to Cart</button>
+                        <h3>Perry Paneer</h3>
+                        <p class="price">₹340 / ₹400</p>
+                        <button onclick="addToCart('Perry Paneer (Med)', 340)">Add Med (₹340)</button>
+                        <button onclick="addToCart('Perry Paneer (Large)', 400)" style="margin-top:5px; background:#e67e22;">Add Large (₹400)</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47" alt="Paneer Lababdar">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=500&auto=format&fit=crop&q=60" alt="Farmer Delight">
                     <div class="item-details">
-                        <h4>Paneer Lababdar</h4>
-                        <p class="price">₹320</p>
-                        <button onclick="addToCart('Paneer Lababdar', 320)">Add to Cart</button>
+                        <h3>Farmer Delight</h3>
+                        <p class="price">₹350 / ₹420</p>
+                        <button onclick="addToCart('Farmer Delight (Med)', 350)">Add Med (₹350)</button>
+                        <button onclick="addToCart('Farmer Delight (Large)', 420)" style="margin-top:5px; background:#e67e22;">Add Large (₹420)</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47" alt="Paneer Tikka Butter Masala">
+            </div>
+        </section>
+
+        <!-- NOODLES -->
+        <section class="category-section" id="noodles">
+            <h2>Noodles</h2>
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=500&auto=format&fit=crop&q=60" alt="Veg Noodles">
                     <div class="item-details">
-                        <h4>Paneer Tikka Butter Masala</h4>
-                        <p class="price">₹399</p>
-                        <button onclick="addToCart('Paneer Tikka Butter Masala', 399)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999" alt="Kashmiri Dum Aloo">
-                    <div class="item-details">
-                        <h4>Kashmiri Dum Aloo</h4>
-                        <p class="price">₹240</p>
-                        <button onclick="addToCart('Kashmiri Dum Aloo', 240)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47" alt="Paneer Pasanda">
-                    <div class="item-details">
-                        <h4>Paneer Pasanda</h4>
-                        <p class="price">₹349</p>
-                        <button onclick="addToCart('Paneer Pasanda', 349)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999" alt="Palak Paneer">
-                    <div class="item-details">
-                        <h4>Palak Paneer</h4>
-                        <p class="price">₹300</p>
-                        <button onclick="addToCart('Palak Paneer', 300)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47" alt="Paneer Butter Masala">
-                    <div class="item-details">
-                        <h4>Paneer Butter Masala</h4>
-                        <p class="price">₹379</p>
-                        <button onclick="addToCart('Paneer Butter Masala', 379)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47" alt="Malai Kofta">
-                    <div class="item-details">
-                        <h4>Malai Kofta</h4>
-                        <p class="price">₹300</p>
-                        <button onclick="addToCart('Malai Kofta', 300)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47" alt="Shahi Paneer">
-                    <div class="item-details">
-                        <h4>Shahi Paneer</h4>
-                        <p class="price">₹369</p>
-                        <button onclick="addToCart('Shahi Paneer', 369)">Add to Cart</button>
-                    </div>
-                </div>
-                <!-- Non-Veg Main Course -->
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398" alt="Butter Chicken">
-                    <div class="item-details">
-                        <h4>Butter Chicken</h4>
-                        <p class="price">₹499</p>
-                        <button onclick="addToCart('Butter Chicken', 499)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398" alt="Kadhai Chicken">
-                    <div class="item-details">
-                        <h4>Kadhai Chicken</h4>
-                        <p class="price">₹499</p>
-                        <button onclick="addToCart('Kadhai Chicken', 499)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398" alt="Murgh Rarha">
-                    <div class="item-details">
-                        <h4>Murgh Rarha</h4>
-                        <p class="price">₹499</p>
-                        <button onclick="addToCart('Murgh Rarha', 499)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398" alt="Murgh Handi">
-                    <div class="item-details">
-                        <h4>Murgh Handi</h4>
-                        <p class="price">₹499</p>
-                        <button onclick="addToCart('Murgh Handi', 499)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398" alt="Chicken Lababdar">
-                    <div class="item-details">
-                        <h4>Chicken Lababdar</h4>
-                        <p class="price">₹499</p>
-                        <button onclick="addToCart('Chicken Lababdar', 499)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947" alt="Mutton Rogan Josh">
-                    <div class="item-details">
-                        <h4>Mutton Rogan Josh</h4>
-                        <p class="price">₹600</p>
-                        <button onclick="addToCart('Mutton Rogan Josh', 600)">Add to Cart</button>
-                    </div>
-                </div>
-                <!-- Raita -->
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5" alt="Plain Curd">
-                    <div class="item-details">
-                        <h4>Plain Curd</h4>
-                        <p class="price">₹110</p>
-                        <button onclick="addToCart('Plain Curd', 110)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5" alt="Boondi Raita">
-                    <div class="item-details">
-                        <h4>Boondi Raita</h4>
-                        <p class="price">₹150</p>
-                        <button onclick="addToCart('Boondi Raita', 150)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5" alt="Mix Veg Raita">
-                    <div class="item-details">
-                        <h4>Mix Veg Raita</h4>
-                        <p class="price">₹200</p>
-                        <button onclick="addToCart('Mix Veg Raita', 200)">Add to Cart</button>
-                    </div>
-                </div>
-                <!-- Noodles -->
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624" alt="Veg Noodles">
-                    <div class="item-details">
-                        <h4>Veg Noodles</h4>
+                        <h3>Veg Noodles</h3>
                         <p class="price">₹220</p>
                         <button onclick="addToCart('Veg Noodles', 220)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624" alt="Hakka Noodles">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?w=500&auto=format&fit=crop&q=60" alt="Hakka Noodles">
                     <div class="item-details">
-                        <h4>Hakka Noodles</h4>
+                        <h3>Hakka Noodles</h3>
                         <p class="price">₹200</p>
                         <button onclick="addToCart('Hakka Noodles', 200)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624" alt="Chilli Garlic Noodles">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1612927601601-6638404737dd?w=500&auto=format&fit=crop&q=60" alt="Chilli Garlic Noodles">
                     <div class="item-details">
-                        <h4>Chilli Garlic Noodles</h4>
+                        <h3>Chilli Garlic Noodles</h3>
                         <p class="price">₹250</p>
                         <button onclick="addToCart('Chilli Garlic Noodles', 250)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624" alt="Paneer Cheese Noodles">
-                    <div class="item-details">
-                        <h4>Paneer Cheese Noodles</h4>
-                        <p class="price">₹280</p>
-                        <button onclick="addToCart('Paneer Cheese Noodles', 280)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624" alt="Chicken Hakka Noodles">
-                    <div class="item-details">
-                        <h4>Chicken Hakka Noodles</h4>
-                        <p class="price">₹279</p>
-                        <button onclick="addToCart('Chicken Hakka Noodles', 279)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624" alt="Chicken Noodles">
-                    <div class="item-details">
-                        <h4>Chicken Noodles</h4>
-                        <p class="price">₹299</p>
-                        <button onclick="addToCart('Chicken Noodles', 299)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624" alt="Chicken Chilli Garlic Noodles">
-                    <div class="item-details">
-                        <h4>Chicken Chilli Garlic Noodles</h4>
-                        <p class="price">₹329</p>
-                        <button onclick="addToCart('Chicken Chilli Garlic Noodles', 329)">Add to Cart</button>
-                    </div>
-                </div>
             </div>
-        </div>
+        </section>
 
-        <!-- 11. INDIAN BREADS, RICE BOWLS & DESSERTS -->
-        <div class="category">
-            <h3>Indian Breads, Rice Bowls & Desserts</h3>
+        <!-- DESSERTS -->
+        <section class="category-section" id="desserts">
+            <h2>Desserts</h2>
             <div class="menu-grid">
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46" alt="Tawa Butter Roti">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=500&auto=format&fit=crop&q=60" alt="Choice of Ice Cream">
                     <div class="item-details">
-                        <h4>Tawa Butter Roti</h4>
-                        <p class="price">₹25</p>
-                        <button onclick="addToCart('Tawa Butter Roti', 25)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46" alt="Tandoori Roti">
-                    <div class="item-details">
-                        <h4>Tandoori Roti</h4>
-                        <p class="price">₹25</p>
-                        <button onclick="addToCart('Tandoori Roti', 25)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46" alt="Butter Roti">
-                    <div class="item-details">
-                        <h4>Butter Roti</h4>
-                        <p class="price">₹30</p>
-                        <button onclick="addToCart('Butter Roti', 30)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641" alt="Plain Naan">
-                    <div class="item-details">
-                        <h4>Plain Naan</h4>
-                        <p class="price">₹50</p>
-                        <button onclick="addToCart('Plain Naan', 50)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641" alt="Butter Naan">
-                    <div class="item-details">
-                        <h4>Butter Naan</h4>
-                        <p class="price">₹55</p>
-                        <button onclick="addToCart('Butter Naan', 55)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641" alt="Garlic Naan">
-                    <div class="item-details">
-                        <h4>Garlic Naan</h4>
-                        <p class="price">₹70</p>
-                        <button onclick="addToCart('Garlic Naan', 70)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19" alt="Steam Rice">
-                    <div class="item-details">
-                        <h4>Steam Rice</h4>
-                        <p class="price">₹170</p>
-                        <button onclick="addToCart('Steam Rice', 170)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19" alt="Jeera Rice">
-                    <div class="item-details">
-                        <h4>Jeera Rice</h4>
-                        <p class="price">₹180</p>
-                        <button onclick="addToCart('Jeera Rice', 180)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8" alt="Chicken Biryani">
-                    <div class="item-details">
-                        <h4>Chicken Biryani</h4>
-                        <p class="price">₹399</p>
-                        <button onclick="addToCart('Chicken Biryani', 399)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc" alt="Gulab Jamun">
-                    <div class="item-details">
-                        <h4>Gulab Jamun</h4>
+                        <h3>Choice of Ice Cream</h3>
                         <p class="price">₹99</p>
-                        <button onclick="addToCart('Gulab Jamun', 99)">Add to Cart</button>
+                        <button onclick="addToCart('Choice of Ice Cream', 99)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c" alt="Walnut Brownie With Ice Cream">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=500&auto=format&fit=crop&q=60" alt="Walnut Brownie With Ice Cream">
                     <div class="item-details">
-                        <h4>Walnut Brownie With Ice Cream</h4>
+                        <h3>Walnut Brownie With Ice Cream</h3>
                         <p class="price">₹120</p>
                         <button onclick="addToCart('Walnut Brownie With Ice Cream', 120)">Add to Cart</button>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- 12. SALADS, BEVERAGES, SHAKES & MOJITOS -->
-        <div class="category">
-            <h3>Salads, Beverages, Shakes & Mojitos</h3>
+        <!-- SOFT DRINKS -->
+        <section class="category-section" id="soft-drinks">
+            <h2>Soft Drinks</h2>
             <div class="menu-grid">
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd" alt="Green Salad">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=500&auto=format&fit=crop&q=60" alt="Sprite">
                     <div class="item-details">
-                        <h4>Green Salad</h4>
-                        <p class="price">₹129</p>
-                        <button onclick="addToCart('Green Salad', 129)">Add to Cart</button>
+                        <h3>Sprite</h3>
+                        <p class="price">₹20</p>
+                        <button onclick="addToCart('Sprite', 20)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999" alt="Russian Salad">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1554866585-cd94860890b7?w=500&auto=format&fit=crop&q=60" alt="Coke">
                     <div class="item-details">
-                        <h4>Russian Salad</h4>
-                        <p class="price">₹199</p>
-                        <button onclick="addToCart('Russian Salad', 199)">Add to Cart</button>
+                        <h3>Coke</h3>
+                        <p class="price">₹20</p>
+                        <button onclick="addToCart('Coke', 20)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87" alt="Cold Coffee">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1625772299848-391b6a87d7b3?w=500&auto=format&fit=crop&q=60" alt="Fanta">
                     <div class="item-details">
-                        <h4>Cold Coffee</h4>
+                        <h3>Fanta</h3>
+                        <p class="price">₹20</p>
+                        <button onclick="addToCart('Fanta', 20)">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1629203851122-3726ecdf080e?w=500&auto=format&fit=crop&q=60" alt="Mountain Dew">
+                    <div class="item-details">
+                        <h3>Mountain Dew</h3>
+                        <p class="price">₹20</p>
+                        <button onclick="addToCart('Mountain Dew', 20)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SHAKES -->
+        <section class="category-section" id="shakes">
+            <h2>Shakes</h2>
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=500&auto=format&fit=crop&q=60" alt="Cold Coffee">
+                    <div class="item-details">
+                        <h3>Cold Coffee</h3>
                         <p class="price">₹140</p>
                         <button onclick="addToCart('Cold Coffee', 140)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699" alt="Chocolate Shake">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=500&auto=format&fit=crop&q=60" alt="Vanilla Shake">
                     <div class="item-details">
-                        <h4>Chocolate Shake</h4>
+                        <h3>Vanilla Shake</h3>
+                        <p class="price">₹169</p>
+                        <button onclick="addToCart('Vanilla Shake', 169)">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1541658016709-82535e94bc69?w=500&auto=format&fit=crop&q=60" alt="Chocolate Shake">
+                    <div class="item-details">
+                        <h3>Chocolate Shake</h3>
                         <p class="price">₹169</p>
                         <button onclick="addToCart('Chocolate Shake', 169)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd" alt="Blue Berry Mojito">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1553177791-57f3695d9fbc?w=500&auto=format&fit=crop&q=60" alt="Strawberry Shake">
                     <div class="item-details">
-                        <h4>Blue Berry Mojito</h4>
+                        <h3>Strawberry Shake</h3>
+                        <p class="price">₹169</p>
+                        <button onclick="addToCart('Strawberry Shake', 169)">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1577805947697-89e18249d767?w=500&auto=format&fit=crop&q=60" alt="Butter Scotch">
+                    <div class="item-details">
+                        <h3>Butter Scotch</h3>
+                        <p class="price">₹169</p>
+                        <button onclick="addToCart('Butter Scotch', 169)">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=500&auto=format&fit=crop&q=60" alt="Kitkat Shake">
+                    <div class="item-details">
+                        <h3>Kitkat Shake</h3>
+                        <p class="price">₹149</p>
+                        <button onclick="addToCart('Kitkat Shake', 149)">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=500&auto=format&fit=crop&q=60" alt="Mango Shake">
+                    <div class="item-details">
+                        <h3>Mango Shake</h3>
+                        <p class="price">₹220</p>
+                        <button onclick="addToCart('Mango Shake', 220)">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=500&auto=format&fit=crop&q=60" alt="Bubblegum Shake">
+                    <div class="item-details">
+                        <h3>Bubblegum Shake</h3>
+                        <p class="price">₹160</p>
+                        <button onclick="addToCart('Bubblegum Shake', 160)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MOJITO -->
+        <section class="category-section" id="mojito">
+            <h2>Mojito</h2>
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShrqDAbzI_COp3ra8sOXS6Q0LqTYpkGUS65MFq_VhrZw&s=10" alt="Orange Mojito">
+                    <div class="item-details">
+                        <h3>Orange Mojito</h3>
+                        <p class="price">₹140</p>
+                        <button onclick="addToCart('Orange Mojito', 140)">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTClvVGHxlBPKD8JlxsiwwjZgEMJeM_zlioLH2mIEXXGg&s=10" alt="Watermelon Mojito">
+                    <div class="item-details">
+                        <h3>Watermelon Mojito</h3>
+                        <p class="price">₹140</p>
+                        <button onclick="addToCart('Watermelon Mojito', 140)">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9BQR0dZf9u-8ijElN0UU-NRctCVEVM0JxEEdM5ix9aA&s=10" alt="Blue Berry Mojito">
+                    <div class="item-details">
+                        <h3>Blue Berry Mojito</h3>
                         <p class="price">₹140</p>
                         <button onclick="addToCart('Blue Berry Mojito', 140)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd" alt="Mint Mojito">
+                <div class="menu-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHyzotNa-9CjeSOym-SUeaCitgni0nAahfDyy8yB6ESg&s=10" alt="Mango Mojito">
                     <div class="item-details">
-                        <h4>Mint Mojito</h4>
+                        <h3>Mango Mojito</h3>
+                        <p class="price">₹140</p>
+                        <button onclick="addToCart('Mango Mojito', 140)">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <img src="https://puffnsip.in/_next/image?url=%2Fuploads%2Fmedia_2026-10_9875870a-4313-48ea-90c6-c085afb12ac1.webp&w=1080&q=75" alt="Mint Mojito">
+                    <div class="item-details">
+                        <h3>Mint Mojito</h3>
                         <p class="price">₹140</p>
                         <button onclick="addToCart('Mint Mojito', 140)">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e" alt="Tea Masala Tea">
+            </div>
+        </section>
+
+        <!-- COFFEE -->
+        <section class="category-section" id="coffee">
+            <h2>Coffee</h2>
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQq3P6ktvrer8ZSkE5KImYsvAfDNb0q9WKTQTIILVFM0g&s=10" alt="Hot Coffee">
                     <div class="item-details">
-                        <h4>Tea Masala Tea</h4>
-                        <p class="price">₹40</p>
-                        <button onclick="addToCart('Tea Masala Tea', 40)">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e" alt="Hot Coffee">
-                    <div class="item-details">
-                        <h4>Hot Coffee</h4>
+                        <h3>Hot Coffee</h3>
                         <p class="price">₹99</p>
                         <button onclick="addToCart('Hot Coffee', 99)">Add to Cart</button>
                     </div>
                 </div>
+                <div class="menu-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8ZRC6OXdpCFE57ibsXHt5Tou_PZGFwaCp6sBOT0HSQA&s=10" alt="Black Coffee">
+                    <div class="item-details">
+                        <h3>Black Coffee</h3>
+                        <p class="price">₹140</p>
+                        <button onclick="addToCart('Black Coffee', 140)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Cart Sidebar / Modal -->
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+            <span class="close-btn" onclick="toggleCart()">&times;</span>
+            <h2>Your Cart</h2>
+            <div id="cart-items">
+                <p>Your cart is empty.</p>
+            </div>
+            <div class="cart-total">
+                <h3>Total: ₹<span id="cart-total-price">0</span></h3>
+                <button class="checkout-btn" onclick="checkout()">Checkout</button>
             </div>
         </div>
+    </div>
 
-    </section>
-
-    <!-- Order & Checkout Form Section -->
-    <section id="order" class="order-section">
-        <h2>Place Your Order</h2>
-        <form id="checkout-form" onsubmit="submitOrder(event)">
-            <label>First Name:</label>
-            <input type="text" id="fname" required placeholder="Enter your first name">
-
-            <label>Phone Number:</label>
-            <input type="text" id="phone" required placeholder="Enter phone number">
-
-            <label>Delivery Address:</label>
-            <textarea id="address" rows="3" required placeholder="Enter delivery address"></textarea>
-
-            <label>Selected Items Summary:</label>
-            <div id="cart-summary" style="background:#fff; padding: 10px; margin-bottom: 15px; border-radius: 5px; color:#333;">
-                No items selected yet.
-            </div>
-
-            <button type="submit" class="btn">Confirm Order</button>
-        </form>
-    </section>
-
-    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Amir Cafe & Restaurant. All Govt. Taxes as Applicable.</p>
+        <p>&copy; 2026 Amir Cafe & Restaurant. All Rights Reserved.</p>
     </footer>
 
     <script src="script.js"></script>
