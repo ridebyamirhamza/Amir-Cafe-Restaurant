@@ -1,42 +1,65 @@
 let cart = [];
 
-function addToCart(itemName, itemPrice) {
-    cart.push({ name: itemName, price: itemPrice });
+function toggleCart() {
+    const modal = document.getElementById('cart-modal');
+    modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
+}
+
+function addToCart(name, price) {
+    let existingItem = cart.find(item => item.name === name);
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({ name, price, quantity: 1 });
+    }
     updateCartUI();
-    alert(itemName + " has been added to your cart!");
 }
 
 function updateCartUI() {
-    document.getElementById("cart-count").innerText = cart.length;
-    
-    let summaryDiv = document.getElementById("cart-summary");
+    const cartCount = document.getElementById('cart-count');
+    const cartItemsContainer = document.getElementById('cart-items');
+    const cartTotalPrice = document.getElementById('cart-total-price');
+
+    let totalCount = 0;
+    let totalPrice = 0;
+
+    cartItemsContainer.innerHTML = '';
+
     if (cart.length === 0) {
-        summaryDiv.innerHTML = "No items selected yet.";
+        cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
     } else {
-        let total = 0;
-        let html = "<ul>";
-        cart.forEach(item => {
-            html += `<li>${item.name} - ₹${item.price}</li>`;
-            total += item.price;
+        cart.forEach((item, index) => {
+            totalCount += item.quantity;
+            totalPrice += item.price * item.quantity;
+
+            cartItemsContainer.innerHTML += `
+                <div class="cart-item">
+                    <div>
+                        <h4>${item.name}</h4>
+                        <p>₹${item.price} x ${item.quantity}</p>
+                    </div>
+                    <button onclick="removeFromCart(${index})" style="background: red; color: white; border: none; padding: 5px 8px; border-radius: 3px; cursor: pointer;">X</button>
+                </div>
+            `;
         });
-        html += `</ul><hr><p><b>Total Amount: ₹${total}</b></p>`;
-        summaryDiv.innerHTML = html;
     }
+
+    cartCount.innerText = totalCount;
+    cartTotalPrice.innerText = totalPrice;
 }
 
-function submitOrder(event) {
-    event.preventDefault();
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCartUI();
+}
+
+function checkout() {
     if (cart.length === 0) {
-        alert("Please add at least one item to your cart before ordering!");
+        alert('Your cart is empty!');
         return;
     }
-    
-    let name = document.getElementById("fname").value;
-    let phone = document.getElementById("phone").value;
-    
-    alert("Thank you, " + name + "! Your order has been successfully placed and will be delivered to your phone (" + phone + ").");
-    
+    alert('Order placed successfully! Thank you for ordering from Amir Cafe & Restaurant.');
     cart = [];
-    document.getElementById("checkout-form").reset();
     updateCartUI();
+    toggleCart();
 }
