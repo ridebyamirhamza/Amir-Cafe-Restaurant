@@ -117,64 +117,64 @@ items: [
 category: "Burger",
 icon: "fa-burger",
 items: [
-["Allo Tikki Burger",69,"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=700"],
-["Crispy Veg Burger",89,"https://images.unsplash.com/photo-1550547660-d9450f859349?w=700"],
-["Paneer Burger",120,"https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=700"],
-["Nacho Cheese Burger",110,"https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=700"]
+["Allo Tikki Burger",69,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXU172PnubFYDoUdxMZZ5cDFITSxjuOxBdbna4yKzUsg&s=10"],
+["Crispy Veg Burger",89,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnj05A6hiAZgSQUoM0lYFrEJinASFH6jB73dD0L_ix6Q&s=10"],
+["Paneer Burger",120,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj1jzUgQ5SkXVu45m6D7hfSWsQmTBzy56ppX-yVbSKDA&s=10"],
+["Nacho Cheese Burger",110,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUUBiaYcb-AsCKow3c5qXEIBJhvNmQTMhkHeXeuAU3ug&s=10"]
 ]},
 
 {
 category: "Sandwich",
 icon: "fa-bread-slice",
 items: [
-["Corn Fresh Sandwich",130,"https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=700"],
-["Veg Grilled Sandwich",150,"https://images.unsplash.com/photo-1509722747041-616f39b57569?w=700"],
-["Veg Double Decker Sandwich",219,"https://images.unsplash.com/photo-1554471062-e5dd4695b38d?w=700"]
+["Corn Fresh Sandwich",130,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR57Jt0sp3ZFbi02VcYcXF_gC7OBk_Z_h_hO-F5XgzLKw&s=10"],
+["Veg Grilled Sandwich",150,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHCLdlNhadIZGnREYmU-sSw783i5v8RPGwIKFvORkDIQ&s=10"],
+["Veg Double Decker Sandwich",219,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIuhy3BRYimVlujgL8f-q9qnPubf1hSrYIWetSP5j9tw&s=10"]
 ]},
 
 {
 category: "Wrap",
 icon: "fa-utensils",
 items: [
-["Fries Wrap",150,"https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?w=700"],
-["Nacho Wrap",150,"https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=700"],
-["Veggies Wrap",140,"https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=700"],
-["Paneer Wrap",150,"https://images.unsplash.com/photo-1540420773420-3366772f4999?w=700"]
+["Fries Wrap",150,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJPAroSqUlsOdG5NCkZPiGi5esL5cMzhERGKnVK_xueA&s=10"],
+["Nacho Wrap",150,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG-lu8sqTSnBvlgqXdIym2B_Ti2zxqyOcW7MHxoHWHug&s=10"],
+["Veggies Wrap",140,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUsv0aA7-p8mcmRCUuTJsdrq5BpdyHS7QhfFmN7wJQSg&s=10"],
+["Paneer Wrap",150,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTotm7mHc2eXAcX1y5bvkYD35Icq45MdWG9fmnOFwEVtw&s=10"]
 ]},
 
 {
 category: "Starter",
 icon: "fa-utensils",
 items: [
-["Veg Spring Roll",149,"https://images.unsplash.com/photo-1601050690597-df0568f70950?w=700"],
-["Honey Chilli Cauliflower",210,"https://images.unsplash.com/photo-1525755662778-989d0524087e?w=700"],
-["Chilli Mushroom",230,"https://images.unsplash.com/photo-151500319-7210-e0cd7184f8b5?w=700"],
-["Hara Bhara Kabab",300,"https://images.unsplash.com/photo-1625813506062-0aeb1d7a094b?w=700"],
-["Tandoori Mushroom",300,"https://images.unsplash.com/photo-1544025162-d76694265947?w=700"],
-["Tandoori Soya Chaap",220,"https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?w=700"],
-["Malai Soya Chaap",249,"https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=700"],
-["Veg Manchurian Dry",220,"https://images.unsplash.com/photo-1526318896980-cf78c088247c?w=700"],
-["Honey Chilli Potato",200,"https://images.unsplash.com/photo-1518013431117-eb1465fa5752?w=700"]
+["Veg Spring Roll",149,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8o4F88txz4mMjny3VB38zJldsQnmh18yZU2DCkyOegA&s=10"],
+["Honey Chilli Cauliflower",210,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzbDhiItnxoDFK7gh9Hi4ll75yyhZ4NYxNj7CFMXaejw&s=10"],
+["Chilli Mushroom",230,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5YV3BdaRfgUnLXD5wG4ngM58crrA6_jagITfkaMrPOg&s=10"],
+["Hara Bhara Kabab",300,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE8QrdCCtmwtTJ4XQWTVgcdi2CYeWobHvNHRGGFwKeXw&s=10"],
+["Tandoori Mushroom",300,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtZig_8RhOc8NMvGi30bxa4IeUerz70Mo-EEgCepfa4A&s=10"],
+["Tandoori Soya Chaap",220,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkVadJE7ct8l_pB2xFtFKLiEfdGNDSItY38aDVk9mvzA&s=10"],
+["Malai Soya Chaap",249,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSscq0QVYVE4lJpQlSAxuVDYwn9OHEG8IV-7F7MgHucwg&s=10"],
+["Veg Manchurian Dry",220,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOiM-yOgU2AA2hwB0z-tmNe3_fRhoKFRovYw4YaIZF9g&s=10"],
+["Honey Chilli Potato",200,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRssu0VDTWoPFSJzDhe1luR-Rl8v5rmoGdzOWffNrENRw&s=10"]
 ]},
 
 {
 category: "Pasta",
 icon: "fa-bowl-food",
 items: [
-["White Sauce Pasta",189,"https://images.unsplash.com/photo-1621996346565-e3d5d6281298?w=700"],
-["Red Sauce Pasta",199,"https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=700"],
-["Alfredo Pasta",249,"https://images.unsplash.com/photo-1608897013039-887f21d8c804?w=700"]
+["White Sauce Pasta",189,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUZkxODW8I27Xb4XRu2g4ITGgwI8yjOqsLMTzlZAS0dg&s=10"],
+["Red Sauce Pasta",199,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScatYna4nHtPAML_qJwTojSOUTkL6KX7E_1QKAakKyPQ&s=10"],
+["Alfredo Pasta",249,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmjG1cQs93_kKVnfmYFF5YcIq5rZ6Fif7PbYRFon5I6Q&s=10"]
 ]},
 
 {
 category: "Pizza (Veg)",
 icon: "fa-pizza-slice",
 items: [
-["Classic Margherita",200,"https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=700",270],
-["Double Cheese Mag",300,"https://images.unsplash.com/photo-1513104890138-7c749659a591?w=700",400],
-["Spicy Delight",320,"https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=700",450],
-["Perry Paneer",340,"https://images.unsplash.com/photo-1595750017130-9b3438e3e414?w=700",400],
-["Farmer Delight",350,"https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=700",420]
+["Classic Margherita Pizza",200,"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTdADV9IefUWQzd6DIFnyVtNnqjYT3OsOrbKa_-iYKpg&s=10",270],
+["Double Cheese Mag. Pizza",300,"https://images.unsplash.com/photo-1513104890138-7c749659a591?w=700",400],
+["Spicy Delight Pizza",320,"https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=700",450],
+["Perry Paneer Pizza",340,"https://images.unsplash.com/photo-1595750017130-9b3438e3e414?w=700",400],
+["Farmer Delight Pizza",350,"https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=700",420]
 ]},
 
 {
