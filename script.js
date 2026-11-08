@@ -36,7 +36,6 @@ function submitOrder(event) {
     
     alert("Thank you, " + name + "! Your order has been successfully placed and will be delivered to your phone (" + phone + ").");
     
-    // Reset form and cart
     cart = [];
     document.getElementById("checkout-form").reset();
     updateCartUI();
