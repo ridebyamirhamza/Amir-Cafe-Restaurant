@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,7 +67,6 @@
 <div id="auth-modal" class="auth-modal" aria-hidden="true">
 <div class="auth-backdrop" onclick="closeAuth()"></div>
 <section class="auth-card" role="dialog" aria-modal="true">
-
 <button class="auth-close" onclick="closeAuth()">&times;</button>
 
 <div class="auth-brand">
@@ -86,7 +86,6 @@
 </div>
 
 <form id="auth-form">
-
 <div id="signup-fields" class="hidden">
 <label for="customer-name">Full name</label>
 <input id="customer-name" type="text" autocomplete="name" placeholder="Enter your full name">
@@ -96,16 +95,13 @@
 </div>
 
 <label for="customer-phone">Mobile number</label>
-
 <div class="phone-control">
 <button class="country-trigger" id="country-trigger" type="button" aria-expanded="false">
 <span id="selected-flag">🇮🇳</span>
 <span id="selected-dial">+91</span>
 <i class="fa-solid fa-chevron-down"></i>
 </button>
-
 <input id="customer-phone" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="Enter mobile number" required>
-
 <div class="country-menu hidden" id="country-menu">
 <input id="country-search" class="country-search" type="search" placeholder="Search country or dial code">
 <div id="country-list" class="country-list" role="listbox"></div>
@@ -125,6 +121,49 @@
 </form>
 
 <p class="auth-note">Mobile number and password login. SMS OTP is currently disabled.</p>
+</section>
+</div>
+
+<!-- ORDER CONFIRMATION -->
+<div id="order-confirm-modal" class="order-modal" aria-hidden="true">
+<div class="order-backdrop" onclick="closeOrderConfirm()"></div>
+<section class="order-dialog" role="dialog" aria-modal="true" aria-labelledby="confirm-title">
+<button class="order-close" type="button" onclick="closeOrderConfirm()" aria-label="Close">&times;</button>
+<p class="eyebrow">FINAL STEP</p>
+<h2 id="confirm-title">Confirm your order</h2>
+<p class="order-dialog-note">Please review your items before placing the order.</p>
+<div id="confirm-order-summary" class="confirm-order-summary"></div>
+<div class="confirm-total">
+<span>Total to pay at restaurant</span>
+<strong>₹<span id="confirm-total">0</span></strong>
+</div>
+<div class="confirm-actions">
+<button type="button" class="confirm-cancel" onclick="closeOrderConfirm()">Back to cart</button>
+<button type="button" class="confirm-submit" id="confirm-order-button" onclick="confirmOrder()">Confirm Order</button>
+</div>
+<p class="order-payment-note">No online payment required · Pay at the restaurant</p>
+</section>
+</div>
+
+<!-- PRINTABLE RECEIPT -->
+<div id="receipt-modal" class="receipt-modal" aria-hidden="true">
+<div class="receipt-backdrop" onclick="closeReceipt()"></div>
+<section class="receipt-dialog" role="dialog" aria-modal="true" aria-labelledby="receipt-title">
+<div class="receipt-actions no-print">
+<button type="button" class="receipt-close" onclick="closeReceipt()">Close</button>
+<button type="button" class="receipt-print" onclick="printReceipt()">
+<i class="fa-solid fa-print"></i> Print Receipt
+</button>
+</div>
+<article id="receipt-paper" class="receipt-paper">
+<div class="receipt-brand">
+<img src="https://i.ibb.co/d0L3sYzZ/87499.png" alt="Amir Cafe logo">
+<h2 id="receipt-title">Amir Cafe &amp; Restaurant</h2>
+<p>ORDER RECEIPT</p>
+</div>
+<div id="receipt-content"></div>
+<p class="receipt-thanks">THANK YOU!<br>VISIT AGAIN.</p>
+</article>
 </section>
 </div>
 
