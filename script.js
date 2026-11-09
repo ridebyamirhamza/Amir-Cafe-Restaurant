@@ -525,10 +525,10 @@ function removeFromCart(index) {
 
 
 // ==========================================
-// CHECKOUT
+// CHECKOUT + ORDER RECEIPT
 // ==========================================
 
-async function checkout() {
+function checkout() {
     if (!cart.length) {
         return alert("Your cart is empty!");
     }
@@ -541,13 +541,140 @@ async function checkout() {
         return;
     }
 
-    const summary = cart.map(item => `${item.name} × ${item.quantity}`).join("\n");
+    renderConfirmSummary();
+    toggleCart();
+    const modal = document.getElementById("order-confirm-modal");
+    modal.classList.add("open");
+    modal.setAttribute("aria-hidden", "false");
+}
+
+function renderConfirmSummary() {
+    const root = document.getElementById("confirm-order-summary");
     const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-    alert(`Order summary:\n${summary}\n\nTotal: ₹${total}\n\nOrder placed successfully! Thank you.`);
-    cart = [];
-    updateCartUI();
-    toggleCart();
+    root.innerHTML = cart.map(item => `
+        <div class="confirm-row">
+            <span>${escapeHTML(item.name)} × ${item.quantity}</span>
+            <strong>₹${(item.price * item.quantity).toFixed(2)}</strong>
+        </div>
+    `).join("");
+
+    document.getElementById("confirm-total").textContent = total.toFixed(2);
+}
+
+function closeOrderConfirm() {
+    const modal = document.getElementById("order-confirm-modal");
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden", "true");
+}
+
+function createInvoiceNumber() {
+    const key = "amir_cafe_invoice_counter";
+    const next = Number(localStorage.getItem(key) || "0") + 1;
+    localStorage.setItem(key, String(next));
+    const datePart = new Date().toISOString().slice(0, 10).replace(/-/g, "");
+    return `ACR-${datePart}-${String(next).padStart(4, "0")}`;
+}
+
+function confirmOrder() {
+    if (!cart.length || !currentUser) {
+        alert("Your cart or login session is missing. Please try again.");
+        closeOrderConfirm();
+        return;
+    }
+
+    const button = document.getElementById("confirm-order-button");
+    button.disabled = true;
+    button.textContent = "Confirming...";
+
+    try {
+        const now = new Date();
+        const items = cart.map(item => ({
+            name: item.name,
+            price: Number(item.price),
+            quantity: Number(item.quantity),
+            lineTotal: Number(item.price) * Number(item.quantity)
+        }));
+        const total = items.reduce((sum, item) => sum + item.lineTotal, 0);
+        const order = {
+            invoice: createInvoiceNumber(),
+            date: now.toLocaleDateString("en-IN"),
+            time: now.toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit" }),
+            customerName: currentUser.name || "Customer",
+            phone: currentUser.phone || "",
+            address: currentUser.address || "",
+            items,
+            subtotal: total,
+            tax: 0,
+            total,
+            paymentStatus: "PAY AT RESTAURANT"
+        };
+
+        // This browser-only record is useful for the current device.
+        const historyKey = "amir_cafe_orders";
+        const history = JSON.parse(localStorage.getItem(historyKey) || "[]");
+        history.push(order);
+        localStorage.setItem(historyKey, JSON.stringify(history));
+
+        cart = [];
+        updateCartUI();
+        closeOrderConfirm();
+        renderReceipt(order);
+
+        const receiptModal = document.getElementById("receipt-modal");
+        receiptModal.classList.add("open");
+        receiptModal.setAttribute("aria-hidden", "false");
+    } catch (error) {
+        console.error("Order confirmation failed:", error);
+        alert("Could not confirm the order. Please try again.");
+    } finally {
+        button.disabled = false;
+        button.textContent = "Confirm Order";
+    }
+}
+
+function renderReceipt(order) {
+    const rows = order.items.map(item => `
+        <tr>
+            <td>${escapeHTML(item.name)}<br><small>${item.quantity} × ₹${item.price.toFixed(2)}</small></td>
+            <td>₹${item.lineTotal.toFixed(2)}</td>
+        </tr>
+    `).join("");
+
+    document.getElementById("receipt-content").innerHTML = `
+        <div class="receipt-meta">
+            <div><strong>INVOICE NO.</strong>${escapeHTML(order.invoice)}</div>
+            <div><strong>DATE</strong>${escapeHTML(order.date)}</div>
+            <div><strong>TIME</strong>${escapeHTML(order.time)}</div>
+            <div><strong>ORDER TYPE</strong>Customer order</div>
+        </div>
+        <div class="receipt-customer">
+            <strong>CUSTOMER</strong><br>
+            ${escapeHTML(order.customerName)}<br>
+            ${escapeHTML(order.phone)}<br>
+            ${escapeHTML(order.address)}
+        </div>
+        <table class="receipt-items">
+            <thead><tr><th>ITEM</th><th>AMOUNT</th></tr></thead>
+            <tbody>${rows}</tbody>
+        </table>
+        <div class="receipt-totals">
+            <div class="receipt-total-line"><span>SUBTOTAL</span><strong>₹${order.subtotal.toFixed(2)}</strong></div>
+            <div class="receipt-total-line"><span>TAX</span><strong>₹${order.tax.toFixed(2)}</strong></div>
+            <div class="receipt-total-line receipt-grand-total"><span>TOTAL</span><strong>₹${order.total.toFixed(2)}</strong></div>
+        </div>
+        <div class="receipt-status">ORDER CONFIRMED · ${escapeHTML(order.paymentStatus)}</div>
+    `;
+}
+
+function closeReceipt() {
+    const modal = document.getElementById("receipt-modal");
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden", "true");
+}
+
+function printReceipt() {
+    window.print();
 }
 
 
@@ -642,7 +769,7 @@ async function handleAuthSubmit(event) {
 
             showAuthMessage("Account successfully created!", true);
             setTimeout(closeAuth, 900);
-        } 
+        }
         // LOGIN
         else {
             const savedData = localStorage.getItem("amir_cafe_user_" + phone);
@@ -708,6 +835,8 @@ function initAuth() {
     document.addEventListener("keydown", event => {
         if (event.key === "Escape") {
             toggleCountryMenu(false);
+            closeOrderConfirm();
+            closeReceipt();
         }
     });
 
